@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://didfq6gpf4q61"]
+
+[ext_resource type="Script" uid="uid://bcvmf2exaqhr3" path="res://scenes/player/player.gd" id="1_8afob"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
+radius = 45.0
+height = 146.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
+size = Vector2(37.75, 20)
+
+[sub_resource type="Animation" id="Animation_dovo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18.125, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37.75, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_8afob"]
+resource_name = "attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.750415, -1.0228717]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-18.125, 1), Vector2(-69.14575, 1.0000001), Vector2(-18.125, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(37.75, 20), Vector2(139.79147, 20), Vector2(37.75, 20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dovo2"]
+_data = {
+&"RESET": SubResource("Animation_dovo2"),
+&"attack": SubResource("Animation_8afob")
+}
+
+[node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation")]
+script = ExtResource("1_8afob")
+hit_box = NodePath("HitBox")
+attack_animation = NodePath("AttackShape/AttackAnimation")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=833775832]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]
+rotation = 0.024418239
+shape = SubResource("CapsuleShape2D_8afob")
+
+[node name="AttackShape" type="Area2D" parent="." unique_id=1453370406]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape" unique_id=1701338926]
+position = Vector2(-18.125, 1)
+rotation = -0.0029780501
+shape = SubResource("RectangleShape2D_8afob")
+debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="AttackShape" unique_id=2074018557]
+libraries/ = SubResource("AnimationLibrary_dovo2")

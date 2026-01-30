@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://b61vnpn516s73" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="2_7h61r"]
 [ext_resource type="Texture2D" uid="uid://b3hbl0i7j826e" path="res://prototype_assets/small_button_texture_hovered.png" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
+[ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
+[ext_resource type="PackedScene" uid="uid://bj5rbd1te67by" path="res://scenes/obstacle/obstacle.tscn" id="5_lfrn8"]
 
 [sub_resource type="GDScript" id="GDScript_7h61r"]
 script/source = "extends Sprite2D
@@ -20,3 +23,14 @@ script = ExtResource("1_sul5r")
 position = Vector2(207, 108)
 texture = ExtResource("3_0sr1o")
 script = SubResource("GDScript_7h61r")
+
+[node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
+position = Vector2(926, 608)
+rotation = -0.0035852133
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1362499008]
+position = Vector2(935, 526)
+script = ExtResource("5_5i0tg")
+
+[node name="Obstacle" parent="." unique_id=834136642 instance=ExtResource("5_lfrn8")]
+position = Vector2(557, 775)
