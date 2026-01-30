@@ -97,14 +97,15 @@ _data = {
 &"attack": SubResource("Animation_8afob")
 }
 
-[node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation", "health_component")]
+[node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation", "health_component", "attack_shape")]
 script = ExtResource("1_8afob")
 hit_box = NodePath("HitBox")
 attack_animation = NodePath("AttackShape/AttackAnimation")
 health_component = NodePath("HealthComponent")
+attack_shape = NodePath("AttackShape")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=833775832]
-collision_mask = 8
+collision_mask = 10
 script = ExtResource("2_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]

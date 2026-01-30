@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nqq7fmjjjqi2"]
 
 [ext_resource type="Script" uid="uid://bjidvo1x7q2wk" path="res://scenes/joy/joy.gd" id="1_c43gh"]
+[ext_resource type="Texture2D" uid="uid://r43j7a8xfhuc" path="res://assets/char.png" id="2_0e8u4"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="2_8c6cf"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="2_wrlo7"]
 
@@ -11,7 +12,13 @@ height = 146.0
 [node name="Joy" type="Node2D" unique_id=759606728]
 script = ExtResource("1_c43gh")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852833426]
+position = Vector2(-6, -66.99999)
+scale = Vector2(1.1728395, 1.1728395)
+texture = ExtResource("2_0e8u4")
+
 [node name="HitBox" parent="." unique_id=18722359 instance=ExtResource("2_wrlo7")]
+position = Vector2(1.5, -73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=580527166]
 shape = SubResource("CapsuleShape2D_wrlo7")

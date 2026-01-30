@@ -7,6 +7,7 @@ class_name Player
 @export var attack_animation: AnimationPlayer
 @export var attack_damage = 10
 @export var health_component: HealthComponent
+@export var attack_shape: Attack
 
 var facing_direction = 1
 
@@ -29,10 +30,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not is_attacking():
-			attack_animation.play("attack", -1, attack_speed)
+			do_attack()
 			
 func is_attacking() -> bool:
 	return attack_animation.is_playing()
+
+func do_attack():
+	attack_animation.play("attack", -1, attack_speed)
 	
 func on_took_damage(area: Area2D) -> void:
 	pass
