@@ -3,14 +3,28 @@
 [ext_resource type="Script" uid="uid://bjidvo1x7q2wk" path="res://scenes/joy/joy.gd" id="1_c43gh"]
 [ext_resource type="Texture2D" uid="uid://r43j7a8xfhuc" path="res://assets/char.png" id="2_0e8u4"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="2_8c6cf"]
+[ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="2_mbnm7"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="2_wrlo7"]
+[ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_us03m"]
+[ext_resource type="PackedScene" uid="uid://dpoqyir7hlw2i" path="res://scenes/projectile/projectile.tscn" id="6_msrb8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrlo7"]
 radius = 59.0
 height = 146.0
 
-[node name="Joy" type="Node2D" unique_id=759606728]
+[node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("jump_projectile", "big_jump_timer")]
 script = ExtResource("1_c43gh")
+damage_marker_prototype = ExtResource("2_mbnm7")
+jump_projectile = NodePath("JumpProjectile")
+big_jump_timer = NodePath("")
+
+[node name="JumpProjectile" parent="." unique_id=390359344 node_paths=PackedStringArray("shadow", "graphics") instance=ExtResource("6_msrb8")]
+destroy_on_hit = false
+shadow = NodePath("../Shadow")
+graphics = NodePath("../Sprite2D")
+
+[node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("5_us03m")]
+shadow_size = 62
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=852833426]
 position = Vector2(-6, -66.99999)

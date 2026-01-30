@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cq3q2tiqvajbb"]
+
+[ext_resource type="Script" uid="uid://bstlg6ig0iaa7" path="res://scenes/shadow/shadow.gd" id="1_imhmn"]
+
+[node name="Shadow" type="Node2D" unique_id=862329244]
+scale = Vector2(1, 0.36)
+script = ExtResource("1_imhmn")
+shadow_size = 265

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://qcdqy265pju8"]
+
+[ext_resource type="Texture2D" uid="uid://bschqh2pauyy5" path="res://assets/skull_marker.png" id="1_twb0s"]
+
+[node name="DamageMarker" type="Node2D" unique_id=599711416]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180785296]
+self_modulate = Color(1, 1, 1, 0.48235294)
+scale = Vector2(1, 0.565)
+texture = ExtResource("1_twb0s")
