@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ixaonk5y2li"
-path="res://.godot/imported/Puppy_Entrance-5.png-e4cffcdf4b62a8be0e4cf93668718b42.ctex"
+uid="uid://blx4cwu1i6h1"
+path="res://.godot/imported/Puppy_Entrance-1.png-e6c49a03a94ea645a412359ca694d709.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Puppy/Puppy_Entrance/Puppy_Entrance-5.png"
-dest_files=["res://.godot/imported/Puppy_Entrance-5.png-e4cffcdf4b62a8be0e4cf93668718b42.ctex"]
+source_file="res://assets/Puppy/Puppy_Entrance-1.png"
+dest_files=["res://.godot/imported/Puppy_Entrance-1.png-e6c49a03a94ea645a412359ca694d709.ctex"]
 
 [params]
 

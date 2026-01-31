@@ -12,15 +12,29 @@ class_name Player
 @export var dash_dur = .25
 @export var player_sprite: AnimatedSprite2D
 
+
+var can_move = false
 var facing_direction = 1
 var last_direction:Vector2
 var speed_mod = 1
 var dash_time = 0
 
+func do_entrance():	
+	attack_animation.play("entrance")
+	player_sprite.play("entrance")
+	await attack_animation.animation_finished
+	player_sprite.play("hood")
+	await player_sprite.animation_finished
+	await Utils.wait(3)
+	can_move = true
+	
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		return 
+		
 	var direction:Vector2
 	var actual_speed = speed
-	if dash_time > 0:
+	if dash_time >= 0:
 		direction = last_direction
 		actual_speed *= dash_speed
 		dash_time -= delta
@@ -60,13 +74,14 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("move_sideways")
 	
 func _ready() -> void:
+	do_entrance()
 	hit_box.area_entered.connect(on_took_damage)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not is_attacking():
 			do_attack()
-	if event.is_action_pressed("dash") and not dash_time > 0 :
+	if event.is_action_pressed("dash"):
 		do_dash()
 			
 func is_attacking() -> bool:
