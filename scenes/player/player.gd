@@ -20,7 +20,7 @@ var dash_time = 0
 func _physics_process(delta: float) -> void:
 	var direction:Vector2
 	var actual_speed = speed
-	if dash_time >= 0:
+	if dash_time > 0:
 		direction = last_direction
 		actual_speed *= dash_speed
 		dash_time -= delta
@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not is_attacking():
 			do_attack()
-	if event.is_action_pressed("dash"):
+	if event.is_action_pressed("dash") and not dash_time > 0 :
 		do_dash()
 			
 func is_attacking() -> bool:
