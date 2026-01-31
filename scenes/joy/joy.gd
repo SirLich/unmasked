@@ -93,7 +93,7 @@ func do_idle():
 	var nav = Utils.get_first_of_type(Nav) as Nav
 	for i in range(randi_range(num_spikes_min, num_spikes_max)):
 		var new_spike = spike_prototype.instantiate()
-		new_spike.global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon)
+		new_spike.global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + global_position - Vector2(1920/2,1080/2)
 		add_sibling(new_spike)
 		await Utils.wait(num_time_between_spikes)
 		
@@ -112,7 +112,7 @@ func do_small_jumps():
 	
 	for i in range(randi_range(num_small_jump_min, num_small_jumps_max)):
 		await do_small_jump()
-	if randf() > 0.8:
+	if randf() > 0.4:
 		do_idle()
 	else:
 		do_big_jump()
@@ -162,7 +162,7 @@ func do_big_jump():
 	animation_player.play("big_jump_attack")
 	await Utils.wait(big_jump_delay)
 
-	if randf() > 0.8:
+	if randf() > 0.6:
 		do_idle()
 	else:
 		do_small_jumps()

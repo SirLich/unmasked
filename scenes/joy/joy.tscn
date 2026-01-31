@@ -42,7 +42,6 @@
 [ext_resource type="Texture2D" uid="uid://cu4xup1hep2ed" path="res://assets/JoyMask/Joy_Mask-12.png" id="33_srsy6"]
 [ext_resource type="Texture2D" uid="uid://bcgm2kwlarb82" path="res://assets/Anger/Anger_Transition/Anger_Transition-1.png" id="46_srsy6"]
 [ext_resource type="Texture2D" uid="uid://cmc1drcj54t7i" path="res://assets/Anger/Anger_Transition/Anger_Transition-2.png" id="47_xhlxp"]
-[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="49_3br2b"]
 
 [sub_resource type="Animation" id="Animation_ji81p"]
 length = 0.001
@@ -1387,12 +1386,3 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(15, -188.99998)
 scale = Vector2(0.795, 0.795)
 sprite_frames = SubResource("SpriteFrames_3br2b")
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=392151475]
-visible = false
-z_index = 1
-position = Vector2(-893, -632)
-color = Color(0, 0, 0, 1)
-invert_enabled = true
-polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
-script = ExtResource("49_3br2b")

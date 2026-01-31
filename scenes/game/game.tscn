@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b7qramg31811o" path="res://assets/Audio/VO/Unmasked-VO-Joy-4.wav" id="5_1iff4"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
 [ext_resource type="AudioStream" uid="uid://cm31rcyjeqqlt" path="res://assets/Audio/VO/Unmasked-VO-Joy-5.wav" id="6_4vuph"]
+[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="6_5i0tg"]
 [ext_resource type="Texture2D" uid="uid://buoh1lslc0a3j" path="res://assets/curtain_part_right.png" id="7_5jirj"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
 [ext_resource type="AudioStream" uid="uid://lfk6p88do51q" path="res://assets/Audio/VO/Unmasked-VO-Joy-6.wav" id="7_wdnak"]
@@ -205,7 +206,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 5.8644838206356935
+wait_time = 4.738181321810078
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
@@ -364,3 +365,10 @@ repeat_times = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1439437456]
 texture = ExtResource("11_5jirj")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1799202300]
+z_index = 1
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
+script = ExtResource("6_5i0tg")
