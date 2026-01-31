@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		scale.x = facing_direction
 		queue_redraw()
 	
-	current_anim_direction = get_anim_direction(direction)
+	current_anim_direction = get_anim_direction(last_direction)
 	
 	if is_currently_attacking:
 		if current_anim_direction == AnimDirection.UP:
@@ -92,9 +92,9 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("attack_sideways")
 	else:
 		if current_anim_direction == AnimDirection.UP:
-				player_sprite.play("move_up")
+			player_sprite.play("move_up")
 		elif current_anim_direction == AnimDirection.DOWN:
-				player_sprite.play("move_down")
+			player_sprite.play("move_down")
 		else:
 			player_sprite.play("move_sideways")
 	

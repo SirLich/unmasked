@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d0u44bujcq0ey" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-9.png" id="13_1s10e"]
 
 [sub_resource type="Animation" id="Animation_3bj6n"]
-length = 0.26666668
+length = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,7 +74,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [16]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_tpqbe"]
@@ -251,5 +251,4 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(-2.3841858e-07, 24.999998)
 scale = Vector2(0.23, 0.49)
 sprite_frames = SubResource("SpriteFrames_oryk6")
-frame = 16
 offset = Vector2(0, -230.43478)
