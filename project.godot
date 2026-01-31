@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Jam Template"
+config/name="Unmasked"
 run/main_scene="uid://bn0m0putc0cvc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 

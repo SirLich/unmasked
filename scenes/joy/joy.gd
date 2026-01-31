@@ -5,6 +5,9 @@ var phase = JoyPhase.MOVE
 
 @export var move_speed = 200
 @export var damage_marker_prototype : PackedScene
+@export var small_jump_distance = 200
+@export var small_jump_delay = 0.5
+@export var animation_player: AnimationPlayer
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -17,7 +20,9 @@ enum JoyPhase {
 }
 
 func _ready() -> void:
-	do_idle()
+	await Utils.wait(1)
+	for i in range(100):
+		await do_small_jump()
 	
 func _physics_process(delta: float) -> void:
 	if phase == JoyPhase.IDLE:
@@ -32,10 +37,18 @@ func do_move(delta):
 
 func do_idle():
 	phase = JoyPhase.IDLE
-	await Utils.wait(5.0)
+	await Utils.wait(1.0)
 	do_big_jump()
 	
-	
+func do_small_jump():
+	phase = JoyPhase.IDLE
+	var dir = self.global_position.direction_to(Utils.get_player().global_position)
+	var pos = self.global_position + (dir * small_jump_distance)
+	jump_projectile.configure(pos)
+	jump_projectile.fire()
+	await jump_projectile.on_hit_ground
+	animation_player.play("small_jump_attack")
+	await Utils.wait(small_jump_delay)
 
 func do_big_jump():
 	phase = JoyPhase.BIG_JUMP

@@ -49,5 +49,8 @@ static func get_parent_by_type(node : Node, type : Script):
 static func get_player() -> Player:
 	return get_first_of_type(Player)
 	
+static func get_direction_to_player(this : Node2D) -> Vector2:
+	return this.global_position.direction_to(Utils.get_player().global_position)
+	
 static func get_camera() -> PlayerCamera:
 	return get_first_of_type(PlayerCamera)

@@ -7,19 +7,91 @@
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="2_wrlo7"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_us03m"]
 [ext_resource type="PackedScene" uid="uid://dpoqyir7hlw2i" path="res://scenes/projectile/projectile.tscn" id="6_msrb8"]
+[ext_resource type="PackedScene" uid="uid://esrufy8jrr3w" path="res://scenes/joy/enemy_attack.tscn" id="8_8g10w"]
+
+[sub_resource type="Animation" id="Animation_ji81p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpExplodeAttack:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [13.038404]
+}
+
+[sub_resource type="Animation" id="Animation_8g10w"]
+resource_name = "jump_explode_attack"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("JumpExplodeAttack:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [13.038404, 113.84, 13.038404]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ji81p"]
+_data = {
+&"RESET": SubResource("Animation_ji81p"),
+&"small_jump_attack": SubResource("Animation_8g10w")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrlo7"]
 radius = 59.0
 height = 146.0
 
-[node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("jump_projectile", "big_jump_timer")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g10w"]
+radius = 13.038404
+
+[node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("animation_player", "jump_projectile")]
 script = ExtResource("1_c43gh")
 damage_marker_prototype = ExtResource("2_mbnm7")
+animation_player = NodePath("AnimationPlayer")
 jump_projectile = NodePath("JumpProjectile")
-big_jump_timer = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1684279621]
+root_node = NodePath("../EnemyAttack")
+libraries/ = SubResource("AnimationLibrary_ji81p")
 
 [node name="JumpProjectile" parent="." unique_id=390359344 node_paths=PackedStringArray("shadow", "graphics") instance=ExtResource("6_msrb8")]
 destroy_on_hit = false
+animate_rotation = false
+launch_angle_degrees = 60.0
 shadow = NodePath("../Shadow")
 graphics = NodePath("../Sprite2D")
 
@@ -39,3 +111,9 @@ shape = SubResource("CapsuleShape2D_wrlo7")
 debug_color = Color(0.673618, 0.5019504, 0.21621296, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("2_8c6cf")]
+
+[node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("8_8g10w")]
+process_mode = 3
+
+[node name="JumpExplodeAttack" type="CollisionShape2D" parent="EnemyAttack" unique_id=528120268]
+shape = SubResource("CircleShape2D_8g10w")
