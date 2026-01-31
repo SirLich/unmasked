@@ -22,7 +22,7 @@ func on_took_damage(area: Area2D) -> void:
 	if take_knockback and not health_component.is_invincible():
 		var parent = get_parent() as Node2D
 		var dir = area.global_position.direction_to(parent.global_position)
-		var knockback_power = 60
+		var knockback_power = 500
 		var tween = get_tree().create_tween()
 		var loc = parent.global_position + (dir * knockback_power)
 		tween.tween_property(parent, "global_position", loc, 0.1)

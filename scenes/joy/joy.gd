@@ -35,6 +35,11 @@ var is_dead = false
 func _ready() -> void:
 	do_intro()
 	health_component.died.connect(on_died)
+	health_component.hurt.connect(on_hurt)
+	
+
+func on_hurt():
+	hurt_animation.play("hurt")
 
 func on_died():
 	is_dead = true
@@ -45,6 +50,9 @@ func on_died():
 
 	
 func play_audio(audio):
+	if Global.settings.skip_audio:
+		return
+		
 	SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
 	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
 
@@ -52,7 +60,7 @@ func play_next_audio_clip():
 	play_audio(joy_audio_in_order[audio_index])
 	audio_index += 1
 	
-func do_intro():		
+func do_intro():
 	health_component.invulnerable =  true
 	animation_player.play("idle")
 	await Utils.wait(0.75)

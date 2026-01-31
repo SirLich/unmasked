@@ -6,6 +6,7 @@ class_name HealthComponent
 @onready var health = max_health
 
 signal died
+signal hurt
 
 ## How long the player is invincible, in seconds
 @export var invincibility_time = 0.5
@@ -13,7 +14,7 @@ var i_frames = 0
 var invulnerable = false
 
 func is_invincible():
-	return i_frames > 0 or invulnerable
+	return i_frames > 0 or invulnerable or health <= 0
 	
 func _physics_process(delta: float) -> void:
 	if is_invincible():
@@ -22,6 +23,8 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage : float) -> void:
 	if is_invincible():
 		return
+	
+	hurt.emit()
 		
 	health -= damage
 	i_frames = invincibility_time

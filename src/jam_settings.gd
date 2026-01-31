@@ -15,3 +15,4 @@ class_name JamSettings
 @export var pause_scene : PackedScene
 
 @export var audio_speed = 1
+@export var skip_audio = false
