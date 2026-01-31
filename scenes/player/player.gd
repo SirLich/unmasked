@@ -12,6 +12,7 @@ class_name Player
 @export var dash_dur = .10
 @export var player_sprite: AnimatedSprite2D
 
+@export var skip_intro_self = false
 
 var can_move = false
 var facing_direction = 1
@@ -25,6 +26,7 @@ func skip_entrance():
 	can_move = true
 	
 func do_entrance():
+	print("DO ENTRANCE")
 	attack_animation.play("entrance")
 	player_sprite.play("entrance")
 	await attack_animation.animation_finished
@@ -79,7 +81,7 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("move_sideways")
 	
 func _ready() -> void:
-	if not Global.settings.skip_audio:
+	if not Global.settings.skip_audio or skip_intro_self:
 		do_entrance()
 	else:
 		skip_entrance()

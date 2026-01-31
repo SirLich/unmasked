@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://jygtf2kulekb"]
+
+[ext_resource type="Script" uid="uid://b61vnpn516s73" path="res://scenes/game/game.gd" id="1_53woy"]
+[ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_6lhwg"]
+[ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="3_nbuju"]
+[ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="4_tc3qg"]
+[ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="6_pdw28"]
+[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="7_pqiqg"]
+[ext_resource type="Script" uid="uid://bbl2eso0epyts" path="res://scenes/game/hud.gd" id="8_yqjns"]
+[ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="9_xgkvc"]
+[ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="10_r6fbw"]
+[ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="11_2d6o7"]
+[ext_resource type="PackedScene" uid="uid://hv5ado3nw55j" path="res://scenes/anger/anger.tscn" id="11_53woy"]
+
+[sub_resource type="Animation" id="Animation_87uf6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -239)]
+}
+
+[sub_resource type="Animation" id="Animation_2a8rs"]
+resource_name = "slide_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -239), Vector2(0, 19)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4j704"]
+_data = {
+&"RESET": SubResource("Animation_87uf6"),
+&"slide_in": SubResource("Animation_2a8rs")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdhmt"]
+font_size = 62
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
+shader = ExtResource("10_r6fbw")
+shader_parameter/outerRadius = 1.0000000475
+shader_parameter/MainAlpha = 0.698000033155
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
+shader = ExtResource("11_2d6o7")
+shader_parameter/brightnessMult = 4.30000006407516
+shader_parameter/wiggleMult = 0.0009999999747
+shader_parameter/chromaticAberrationOffset = 0.000999999975
+
+[node name="Game" type="Node2D" unique_id=1234032883]
+y_sort_enabled = true
+script = ExtResource("1_53woy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=71547521]
+libraries/ = SubResource("AnimationLibrary_4j704")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=366164865]
+z_index = -1
+position = Vector2(1141, 608.00006)
+rotation = 0.0040509664
+scale = Vector2(1.9067129, 1.9067129)
+texture = ExtResource("2_6lhwg")
+
+[node name="Anger" parent="." unique_id=1133342481 instance=ExtResource("11_53woy")]
+position = Vector2(594, 445)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1200371875]
+position = Vector2(833, 637)
+rotation = -0.0035852133
+script = ExtResource("3_nbuju")
+
+[node name="PauseHandler" parent="." unique_id=796881595 instance=ExtResource("4_tc3qg")]
+
+[node name="Player" parent="." unique_id=1339953909 instance=ExtResource("6_pdw28")]
+position = Vector2(838, 634)
+rotation = -0.0035852133
+skip_intro_self = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
+z_index = 1
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
+script = ExtResource("7_pqiqg")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Polygon2D" unique_id=1232552886]
+offset_left = -3209.0
+offset_top = -2404.0
+offset_right = -421.0
+offset_bottom = 2336.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Polygon2D" unique_id=1123906461]
+offset_left = 2457.0
+offset_top = -2046.0
+offset_right = 5245.0
+offset_bottom = 2694.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Polygon2D" unique_id=473793360]
+offset_left = -1933.0
+offset_top = 1590.0
+offset_right = 3867.0
+offset_bottom = 6330.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Polygon2D" unique_id=708558857]
+offset_left = -2047.0
+offset_top = -5118.0
+offset_right = 3753.0
+offset_bottom = -378.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
+
+[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -239.0
+offset_bottom = -40.0
+grow_horizontal = 2
+rotation = 0.00012396125
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+script = ExtResource("8_yqjns")
+name_label = NodePath("Name")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Name" type="Label" parent="CanvasLayer/HUD" unique_id=480834169]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Name"
+label_settings = SubResource("LabelSettings_bdhmt")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD" unique_id=77939943]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUD/MarginContainer" unique_id=1369952075]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+script = ExtResource("9_xgkvc")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=412873559]
+material = SubResource("ShaderMaterial_4j704")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
+material = SubResource("ShaderMaterial_5jirj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -32.0
+offset_right = 23.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2

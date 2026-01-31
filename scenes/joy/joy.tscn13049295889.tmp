@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="2_mbnm7"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="2_wrlo7"]
 [ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_ji81p"]
-[ext_resource type="PackedScene" uid="uid://hv5ado3nw55j" path="res://scenes/anger/anger.tscn" id="3_xhlxp"]
 [ext_resource type="AudioStream" uid="uid://b4tajg15b7dea" path="res://assets/Audio/VO/Unmasked-VO-Joy-1.wav" id="4_s6p07"]
 [ext_resource type="AudioStream" uid="uid://6va7t6ygiqyj" path="res://assets/Audio/VO/Unmasked-VO-Joy-2.wav" id="5_fd4ow"]
 [ext_resource type="AudioStream" uid="uid://bf75tepma70eq" path="res://assets/Audio/VO/Unmasked-VO-Joy-to-Anger.wav" id="5_t0my5"]
@@ -956,7 +955,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_jko2k"]
-length = 0.0055
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1236,7 +1235,6 @@ animations = [{
 [node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("jump_projectile", "health_component", "animation_player", "attack_animations", "clap_animation", "hurt_animation", "death_animation")]
 script = ExtResource("1_c43gh")
 damage_marker_prototype = ExtResource("2_mbnm7")
-next_enemy = ExtResource("3_xhlxp")
 spike_prototype = ExtResource("3_ji81p")
 intro_audio = ExtResource("4_s6p07")
 transition_audio = ExtResource("5_t0my5")

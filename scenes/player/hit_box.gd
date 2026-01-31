@@ -2,6 +2,7 @@ extends Area2D
 class_name HitBox
 
 @export var contact_damage = 10
+@export var contact_knockback = 200
 @export var take_knockback = true
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func on_took_damage(area: Area2D) -> void:
 		knockback = attack.knockback
 	var hit_box = area as HitBox
 	if hit_box:
+		knockback = hit_box.contact_knockback
 		damage = hit_box.contact_damage
 		
 	if damage == 0:
