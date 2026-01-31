@@ -153,7 +153,7 @@ scale = Vector2(0.605, 0.605)
 position = Vector2(11.570248, -163.63635)
 sprite_frames = SubResource("SpriteFrames_gfkcg")
 autoplay = "default"
-frame_progress = 0.36592346
+frame_progress = 0.32436007
 
 [node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=1723723208]
 material = SubResource("ShaderMaterial_nx8ml")
