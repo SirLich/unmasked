@@ -367,6 +367,7 @@ repeat_times = 20
 texture = ExtResource("11_5jirj")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1799202300]
+visible = false
 z_index = 1
 color = Color(0, 0, 0, 1)
 invert_enabled = true
