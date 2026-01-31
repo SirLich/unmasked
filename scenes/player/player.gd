@@ -55,7 +55,12 @@ func do_dash():
 	dash_time = dash_dur
 	
 func do_attack():
-	attack_animation.play("attack", -1, attack_speed)
+	if last_direction.angle() < Vector2.LEFT.angle() and  last_direction.angle() < Vector2.RIGHT.angle():
+		attack_animation.play("attack_up", -1, attack_speed)
+	elif last_direction.angle() < Vector2.LEFT.angle() and  last_direction.angle() > Vector2.RIGHT.angle():
+		attack_animation.play("attack_down", -1, attack_speed)
+	else:
+		attack_animation.play("attack", -1, attack_speed)
 	
 func on_took_damage(area: Area2D) -> void:
 	pass
