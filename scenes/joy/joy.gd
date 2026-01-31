@@ -7,8 +7,8 @@ class_name Joy
 @export var small_jump_distance = 200
 @export var small_jump_delay = 0.5
 @export var big_jump_delay = 0.5
-@export var num_small_jump_min = 4
-@export var num_small_jumps_max = 6
+@export var num_small_jump_min = 2
+@export var num_small_jumps_max = 4
 @export var idle_time_min = 1
 @export var idle_time_max = 1
 @export var num_spikes_min = 30
@@ -17,6 +17,9 @@ class_name Joy
 
 @export_group("Audio")
 @export var intro_audio : AudioStream
+@export var transition_audio : AudioStream
+@export var joy_audio_in_order : Array[AudioStream]
+var audio_index = 0
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -25,13 +28,37 @@ class_name Joy
 @export var attack_animations: AnimationPlayer
 @export var clap_animation: AnimationPlayer
 @export var hurt_animation: AnimationPlayer
+@export var death_animation: AnimationPlayer
+
+var is_dead = false
 
 func _ready() -> void:
 	do_intro()
+	health_component.died.connect(on_died)
+	health_component.hurt.connect(on_hurt)
+	
 
+func on_hurt():
+	hurt_animation.play("hurt")
+
+func on_died():
+	is_dead = true
+	animation_player.play("idle")
+	play_audio(transition_audio)
+	await Utils.wait(7.9)
+	death_animation.play("die")
+
+	
 func play_audio(audio):
+	if Global.settings.skip_audio:
+		return
+		
 	SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
 	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
+
+func play_next_audio_clip():
+	play_audio(joy_audio_in_order[audio_index])
+	audio_index += 1
 	
 func do_intro():
 	health_component.invulnerable =  true
@@ -44,8 +71,12 @@ func do_intro():
 	do_small_jumps()
 
 func do_idle():
+	if is_dead:
+		return 
+		
 	await get_tree().process_frame
 	print("do_idle")
+	play_next_audio_clip()
 	clap_animation.play("clap")
 	await clap_animation.animation_finished
 	animation_player.play("idle")
@@ -63,17 +94,23 @@ func do_idle():
 		do_small_jumps()
 
 func do_small_jumps():
+	if is_dead:
+		return 
+		
 	await get_tree().process_frame
 	print("do_small_jumps")
 	
 	for i in range(randi_range(num_small_jump_min, num_small_jumps_max)):
 		await do_small_jump()
-	if randf() > 0.3:
+	if randf() > 0.8:
 		do_idle()
 	else:
 		do_big_jump()
 	
 func do_small_jump():
+	if is_dead:
+		return 
+		
 	animation_player.play("big_jump_prep", 0.2, 2.0)
 	await animation_player.animation_finished
 	animation_player.play("big_jump_prep", 0.2, -2.0, true)
@@ -88,6 +125,9 @@ func do_small_jump():
 
 
 func do_big_jump():
+	if is_dead:
+		return 
+		
 	await get_tree().process_frame
 	var attack_pos = Utils.get_player().global_position
 	animation_player.play("big_jump_prep", 0.2)
