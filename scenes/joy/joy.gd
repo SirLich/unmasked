@@ -3,6 +3,7 @@ class_name Joy
 
 @export var move_speed = 200
 @export var damage_marker_prototype : PackedScene
+@export var next_enemy : PackedScene
 @export var spike_prototype : PackedScene
 @export var small_jump_distance = 200
 @export var small_jump_delay = 0.5
@@ -20,6 +21,8 @@ class_name Joy
 @export var transition_audio : AudioStream
 @export var joy_audio_in_order : Array[AudioStream]
 var audio_index = 0
+@export var small_jump_land_sound : AudioStream
+@export var large_jump_land_sound : AudioStream
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -42,23 +45,45 @@ func on_hurt():
 	hurt_animation.play("hurt")
 
 func on_died():
+	Global.enemy_died.emit()
+	if current_voice:
+		current_voice.stop()
 	is_dead = true
 	animation_player.play("idle")
 	play_audio(transition_audio)
 	await Utils.wait(7.9)
 	death_animation.play("die")
+	await death_animation.animation_finished
+	var new_enemy = next_enemy.instantiate()
+	new_enemy.global_position = global_position
+	add_sibling(new_enemy)
+	self.queue_free()
 
 	
-func play_audio(audio):
+func play_audio(audio, is_voice = false):
 	if Global.settings.skip_audio:
 		return
-		
-	SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
+	
+	
+	var new_audio = SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
+	if is_voice:
+		current_voice = new_audio
 	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
 
+var current_voice : AudioStreamPlayer = null
+var is_playing_voice = false
 func play_next_audio_clip():
-	play_audio(joy_audio_in_order[audio_index])
+	if is_playing_voice:
+		return
+		
+	is_playing_voice = true
+	await play_audio(joy_audio_in_order[audio_index], true)
+	is_playing_voice = false
 	audio_index += 1
+
+func stop_audio():
+	pass
+	
 	
 func do_intro():
 	health_component.invulnerable =  true
@@ -121,13 +146,16 @@ func do_small_jump():
 	jump_projectile.configure(pos)
 	jump_projectile.fire()
 	await jump_projectile.on_hit_ground
+	SoundManager.play_sound(small_jump_land_sound)
 	attack_animations.play("small_jump_attack")
 
 
 func do_big_jump():
 	if is_dead:
 		return 
-		
+	
+	play_next_audio_clip()
+
 	await get_tree().process_frame
 	var attack_pos = Utils.get_player().global_position
 	animation_player.play("big_jump_prep", 0.2)
@@ -140,11 +168,14 @@ func do_big_jump():
 	jump_projectile.configure(attack_pos)
 	animation_player.play_backwards("big_jump_prep", 0.2)
 
+	health_component.invulnerable = true
 	jump_projectile.fire()
 	
 	new_damage_marker.queue_free()
 	
 	await jump_projectile.on_hit_ground
+	SoundManager.play_sound(large_jump_land_sound)
+	health_component.invulnerable = false
 	animation_player.play("big_jump_attack")
 	await Utils.wait(big_jump_delay)
 

@@ -26,7 +26,7 @@ void fragment( ){
 	color *= brightnessMult;
 
 	//add scanlines
-	float scans = clamp( 0.35+0.35*sin(3.5*TIME+uv.y*iResolution.y*1.5), 0.0, 1.0);
+	float scans = clamp( 0.35+0.35*sin(3.5*TIME+uv.y*iResolution.y*1.5), 0.0, 0.2);
 	float s = pow(scans,1.7);
 	color = color*vec3( 0.4+0.7*s) ;
 

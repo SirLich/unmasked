@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bcvmf2exaqhr3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://hp7p7kc7v7sf" path="res://scenes/player/hit_box.gd" id="2_gmlin"]
+[ext_resource type="AudioStream" uid="uid://boejrxmmles5k" path="res://assets/Audio/VFX/attack_sounds.tres" id="2_ymths"]
 [ext_resource type="Script" uid="uid://cmuanwm5huih4" path="res://scenes/player/attack.gd" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_p47bc"]
 [ext_resource type="Texture2D" uid="uid://bltlno0ob424w" path="res://assets/Puppy/Puppy_Move/Puppy_Move-1.png" id="6_3j4b4"]
@@ -78,9 +79,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 45.0
 height = 146.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
-size = Vector2(37.75, 20)
 
 [sub_resource type="Animation" id="Animation_dovo2"]
 length = 0.001
@@ -259,6 +257,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_2wy34"]
 resource_name = "entrance"
 length = 4.4
+step = 0.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -280,6 +279,9 @@ _data = {
 &"attack_up": SubResource("Animation_75vfm"),
 &"entrance": SubResource("Animation_2wy34")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
+size = Vector2(37.75, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
 animations = [{
@@ -537,20 +539,26 @@ animations = [{
 [node name="Player" type="Node2D" unique_id=1339953909 node_paths=PackedStringArray("hit_box", "attack_animation", "health_component", "attack_shape", "player_sprite")]
 script = ExtResource("1_8afob")
 hit_box = NodePath("HitBox")
-attack_animation = NodePath("AttackShape/AttackAnimation")
+attack_animation = NodePath("AttackAnimation")
 health_component = NodePath("HealthComponent")
 attack_shape = NodePath("AttackShape")
 player_sprite = NodePath("Visuals/PlayerSprite")
+player_attack_sound = ExtResource("2_ymths")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=833775832]
 position = Vector2(0, -73)
 collision_mask = 10
 script = ExtResource("2_gmlin")
 contact_damage = 0
+contact_knockback = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]
 rotation = 0.024418239
 shape = SubResource("CapsuleShape2D_8afob")
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="." unique_id=2074018557]
+root_node = NodePath("../AttackShape")
+libraries/ = SubResource("AnimationLibrary_dovo2")
 
 [node name="AttackShape" type="Area2D" parent="." unique_id=1453370406]
 process_mode = 4
@@ -558,6 +566,7 @@ position = Vector2(0, -73)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3_lvxji")
+knockback = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape" unique_id=1701338926]
 position = Vector2(-18.125, 1)
@@ -565,9 +574,6 @@ rotation = 0.005082189
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_8afob")
 debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
-
-[node name="AttackAnimation" type="AnimationPlayer" parent="AttackShape" unique_id=2074018557]
-libraries/ = SubResource("AnimationLibrary_dovo2")
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("2_dovo2")]
 

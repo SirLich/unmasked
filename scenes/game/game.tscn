@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
-[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="6_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bbl2eso0epyts" path="res://scenes/game/hud.gd" id="8_2a8rs"]
 [ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="8_87uf6"]
 [ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="10_4j704"]
+[ext_resource type="Texture2D" uid="uid://cuj7lytjrfjpj" path="res://assets/Ground.png" id="11_5jirj"]
 [ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="11_kp23o"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
@@ -55,12 +55,12 @@ font_size = 62
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
 shader = ExtResource("10_4j704")
 shader_parameter/outerRadius = 1.0000000475
-shader_parameter/MainAlpha = 0.698000033155
+shader_parameter/MainAlpha = 0.5910000280725
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
 shader = ExtResource("11_kp23o")
-shader_parameter/brightnessMult = 4.30000006407516
+shader_parameter/brightnessMult = 3.5000000521542
 shader_parameter/wiggleMult = 0.0009999999747
 shader_parameter/chromaticAberrationOffset = 0.000999999975
 
@@ -72,6 +72,7 @@ script = ExtResource("1_sul5r")
 libraries/ = SubResource("AnimationLibrary_4j704")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=366164865]
+visible = false
 z_index = -1
 position = Vector2(1141, 608.00006)
 rotation = 0.0040509664
@@ -92,42 +93,6 @@ move_speed = 100
 [node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
 position = Vector2(838, 634)
 rotation = -0.0035852133
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
-z_index = 1
-color = Color(0, 0, 0, 1)
-invert_enabled = true
-polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
-script = ExtResource("6_5i0tg")
-metadata/_edit_lock_ = true
-
-[node name="ColorRect" type="ColorRect" parent="Polygon2D" unique_id=1232552886]
-offset_left = -3209.0
-offset_top = -2404.0
-offset_right = -421.0
-offset_bottom = 2336.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Polygon2D" unique_id=1123906461]
-offset_left = 2457.0
-offset_top = -2046.0
-offset_right = 5245.0
-offset_bottom = 2694.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Polygon2D" unique_id=473793360]
-offset_left = -1933.0
-offset_top = 1590.0
-offset_right = 3867.0
-offset_bottom = 6330.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Polygon2D" unique_id=708558857]
-offset_left = -2047.0
-offset_top = -5118.0
-offset_right = 3753.0
-offset_bottom = -378.0
-color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
 
@@ -173,6 +138,18 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorGrading" type="ColorRect" parent="CanvasLayer" unique_id=1727519171]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.13333334, 0.06666667)
+
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
 material = SubResource("ShaderMaterial_5jirj")
 anchors_preset = 15
@@ -184,3 +161,10 @@ offset_right = 23.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=479565801]
+repeat_size = Vector2(500, 500)
+repeat_times = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1439437456]
+texture = ExtResource("11_5jirj")
