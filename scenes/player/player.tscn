@@ -59,22 +59,53 @@
 [ext_resource type="Texture2D" uid="uid://yalyqtc0v175" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-7.png" id="31_ymths"]
 [ext_resource type="Texture2D" uid="uid://r3202ik6qrqp" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-1.png" id="32_2wy34"]
 [ext_resource type="Texture2D" uid="uid://dd3c414pca7w4" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-8.png" id="32_3p0jd"]
+[ext_resource type="Texture2D" uid="uid://bem6c3om1b2uu" path="res://assets/Puppy/Puppy_Death/Puppy_Death-1.png" id="32_drv02"]
 [ext_resource type="Texture2D" uid="uid://c74qe1xpqi27w" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-24.png" id="32_trum3"]
 [ext_resource type="Texture2D" uid="uid://duxhgh5coigpa" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-9.png" id="33_7nf13"]
+[ext_resource type="Texture2D" uid="uid://dcom5sa3prf17" path="res://assets/Puppy/Puppy_Death/Puppy_Death-2.png" id="33_tmafg"]
 [ext_resource type="Texture2D" uid="uid://b7hh4nvnej3he" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-2.png" id="33_ymths"]
+[ext_resource type="Texture2D" uid="uid://c4si2d0e3ii5p" path="res://assets/Puppy/Puppy_Death/Puppy_Death-3.png" id="34_2enr6"]
 [ext_resource type="Texture2D" uid="uid://y4emmrnrmlgd" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-3.png" id="34_3p0jd"]
 [ext_resource type="Texture2D" uid="uid://d0slusgn067ex" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-4.png" id="35_7nf13"]
+[ext_resource type="Texture2D" uid="uid://d2kku15sdxbyu" path="res://assets/Puppy/Puppy_Death/Puppy_Death-4.png" id="35_qxlpa"]
 [ext_resource type="Texture2D" uid="uid://b8efwsp7x6htk" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-5.png" id="36_0y4ya"]
+[ext_resource type="Texture2D" uid="uid://bqwqo6ofssq6x" path="res://assets/Puppy/Puppy_Death/Puppy_Death-5.png" id="36_iwd08"]
+[ext_resource type="Texture2D" uid="uid://c7hxtmcmdrjln" path="res://assets/Puppy/Puppy_Death/Puppy_Death-6.png" id="37_5oeuk"]
 [ext_resource type="Texture2D" uid="uid://bwigvaqri6v6r" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-6.png" id="37_s050l"]
 [ext_resource type="Texture2D" uid="uid://c2a3fu52f71q1" path="res://assets/Puppy/Puppy_Hood/Puppy_Hood-7.png" id="38_4sw5w"]
+[ext_resource type="Texture2D" uid="uid://chbv2oebil68e" path="res://assets/Puppy/Puppy_Death/Puppy_Death-7.png" id="38_oq5hk"]
+[ext_resource type="Texture2D" uid="uid://bj823kwnk3thm" path="res://assets/Puppy/Puppy_Death/Puppy_Death-8.png" id="39_kfile"]
+[ext_resource type="Texture2D" uid="uid://cda3es5yq58m4" path="res://assets/Puppy/Puppy_Death/Puppy_Death-9.png" id="40_pkjeu"]
+[ext_resource type="Texture2D" uid="uid://des51kavvj01j" path="res://assets/Puppy/Puppy_Death/Puppy_Death-10.png" id="41_0epl4"]
+[ext_resource type="Texture2D" uid="uid://cxlyvofii46g6" path="res://assets/Puppy/Puppy_Death/Puppy_Death-11.png" id="42_3r8w6"]
 [ext_resource type="Texture2D" uid="uid://hqb2hg06erl" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-49.png" id="42_4b1ex"]
+[ext_resource type="Texture2D" uid="uid://c13xk4b0py2cf" path="res://assets/Puppy/Puppy_Death/Puppy_Death-12.png" id="43_i816j"]
 [ext_resource type="Texture2D" uid="uid://d0po00na4lv3m" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-50.png" id="43_v8cnd"]
+[ext_resource type="Texture2D" uid="uid://cj0met7xsjd2r" path="res://assets/Puppy/Puppy_Death/Puppy_Death-13.png" id="44_laqvq"]
 [ext_resource type="Texture2D" uid="uid://bfvj5njthnv4k" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-51.png" id="44_wuxn4"]
 [ext_resource type="Texture2D" uid="uid://b15be8x78d0b8" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-52.png" id="45_46q5t"]
+[ext_resource type="Texture2D" uid="uid://c1dyyenr43phs" path="res://assets/Puppy/Puppy_Death/Puppy_Death-14.png" id="45_aq51r"]
 [ext_resource type="Texture2D" uid="uid://bvtloxu6115ym" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-53.png" id="46_5miun"]
+[ext_resource type="Texture2D" uid="uid://6owne0c5oil5" path="res://assets/Puppy/Puppy_Death/Puppy_Death-15.png" id="46_q3ejk"]
+[ext_resource type="Texture2D" uid="uid://8dmh0ty0v3i4" path="res://assets/Puppy/Puppy_Death/Puppy_Death-16.png" id="47_2dxln"]
 [ext_resource type="Texture2D" uid="uid://c6fbux4cf8d5q" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-54.png" id="47_7u1tp"]
+[ext_resource type="Texture2D" uid="uid://ijwupqeq72sj" path="res://assets/Puppy/Puppy_Death/Puppy_Death-17.png" id="48_gsldg"]
 [ext_resource type="Texture2D" uid="uid://c4gjdxscecvvv" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-55.png" id="48_pq1ih"]
 [ext_resource type="Texture2D" uid="uid://6k741xawnfkb" path="res://assets/Puppy/Puppy_Attack/Puppy_Attack-56.png" id="49_31ki0"]
+[ext_resource type="Texture2D" uid="uid://c0skl63jyjink" path="res://assets/Puppy/Puppy_Death/Puppy_Death-18.png" id="49_rrrpt"]
+[ext_resource type="Texture2D" uid="uid://bql57fe3sm8cc" path="res://assets/Puppy/Puppy_Death/Puppy_Death-19.png" id="50_us45u"]
+[ext_resource type="Texture2D" uid="uid://3sher52s7wkg" path="res://assets/Puppy/Puppy_Death/Puppy_Death-20.png" id="51_wvv85"]
+[ext_resource type="Texture2D" uid="uid://caj7bxiq18kyf" path="res://assets/Puppy/Puppy_Death/Puppy_Death-21.png" id="52_hxu4r"]
+[ext_resource type="Texture2D" uid="uid://8m5hmspb53w2" path="res://assets/Puppy/Puppy_Death/Puppy_Death-22.png" id="53_i6dto"]
+[ext_resource type="Texture2D" uid="uid://bgwqsupdvg0fa" path="res://assets/Puppy/Puppy_Death/Puppy_Death-23.png" id="54_4d8j4"]
+[ext_resource type="Texture2D" uid="uid://dnkou4jamhyj8" path="res://assets/Puppy/Puppy_Death/Puppy_Death-24.png" id="55_s27sh"]
+[ext_resource type="Texture2D" uid="uid://dw7h23x60vvtm" path="res://assets/Puppy/Puppy_Death/Puppy_Death-25.png" id="56_1vi86"]
+[ext_resource type="Texture2D" uid="uid://cxonwt8amtged" path="res://assets/Puppy/Puppy_Death/Puppy_Death-26.png" id="57_beayq"]
+[ext_resource type="Texture2D" uid="uid://cn6dmvmxy1cus" path="res://assets/Puppy/Puppy_Death/Puppy_Death-27.png" id="58_12j61"]
+[ext_resource type="Texture2D" uid="uid://buqunxucn7a26" path="res://assets/Puppy/Puppy_Death/Puppy_Death-28.png" id="59_kthys"]
+[ext_resource type="Texture2D" uid="uid://bna3jcfd78vip" path="res://assets/Puppy/Puppy_Death/Puppy_Death-29.png" id="60_48o5h"]
+[ext_resource type="Texture2D" uid="uid://cxfodnxpggcni" path="res://assets/Puppy/Puppy_Death/Puppy_Death-30.png" id="61_xum3i"]
+[ext_resource type="Texture2D" uid="uid://70bnxdtqatve" path="res://assets/Puppy/Puppy_Death/Puppy_Death-31.png" id="62_ct4wv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
 radius = 45.0
@@ -377,6 +408,104 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("32_drv02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_tmafg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_2enr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_qxlpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_iwd08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_5oeuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_oq5hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_kfile")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_pkjeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0epl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_3r8w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_i816j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_laqvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_aq51r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_q3ejk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_2dxln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_gsldg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_rrrpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_us45u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_wvv85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_hxu4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_i6dto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4d8j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_s27sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_1vi86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_beayq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_12j61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_kthys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_48o5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_xum3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_ct4wv")
+}],
+"loop": true,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("31_pwfqx")
 }],
 "loop": true,
@@ -581,12 +710,12 @@ debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
 shadow_size = 91
 
 [node name="Visuals" type="Node2D" parent="." unique_id=2102001069]
-modulate = Color(0.47397572, 0.47397572, 0.47397578, 1)
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Visuals" unique_id=1411545688]
 position = Vector2(-3, -73)
 scale = Vector2(1.675, 1.675)
 sprite_frames = SubResource("SpriteFrames_p47bc")
-animation = &"attack_up"
+animation = &"attack_down"
 autoplay = "move_sideways"
+frame_progress = 0.047407363
 flip_h = true

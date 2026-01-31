@@ -82,11 +82,16 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("move_sideways")
 	
 func _ready() -> void:
+	health_component.died.connect(died)
 	if not Global.settings.skip_audio and not skip_intro_self:
 		do_entrance()
 	else:
 		skip_entrance()
 
+func died():
+	can_move = false
+	player_sprite.play("die")
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		if not is_currently_attacking:
