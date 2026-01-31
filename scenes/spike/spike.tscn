@@ -153,6 +153,8 @@ libraries/ = SubResource("AnimationLibrary_3bj6n")
 
 [node name="Attack" type="Area2D" parent="." unique_id=2134129039]
 process_mode = 4
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("3_3bj6n")
 metadata/_custom_type_script = "uid://cmuanwm5huih4"
 

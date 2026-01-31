@@ -8,8 +8,8 @@ class_name Player
 @export var attack_damage = 10
 @export var health_component: HealthComponent
 @export var attack_shape: Attack
-@export var dash_speed = 4.5
-@export var dash_dur = .25
+@export var dash_speed = 2.5
+@export var dash_dur = .10
 @export var player_sprite: AnimatedSprite2D
 
 
@@ -18,6 +18,8 @@ var facing_direction = 1
 var last_direction:Vector2
 var speed_mod = 1
 var dash_time = 0
+
+var is_currently_attacking = false
 
 func skip_entrance():
 	can_move = true
@@ -59,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	var x_size = abs(direction.x)
 	var y_size = abs(direction.y)
 	
-	if is_attacking():
+	if is_currently_attacking:
 		if y_size > x_size:
 			if direction.y < 0:
 				player_sprite.play("attack_up")
@@ -81,11 +83,10 @@ func _ready() -> void:
 		do_entrance()
 	else:
 		skip_entrance()
-	hit_box.area_entered.connect(on_took_damage)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		if not is_attacking():
+		if is_currently_attacking:
 			do_attack()
 	if event.is_action_pressed("dash"):
 		do_dash()
@@ -98,16 +99,10 @@ func do_dash():
 	dash_time = dash_dur
 	
 func do_attack():
-	
+	print('DO ATTACK')
+	is_currently_attacking = true
+	attack_shape.process_mode = Node.PROCESS_MODE_ALWAYS
 	attack_animation.play("attack", -1, attack_speed)
-	
-func on_took_damage(area: Area2D) -> void:
-	pass
-	### TODO: Configure how much damage the player will take
-	#health -= 10
-	#i_frames = invincibility_time
-	#Utils.get_camera().start_shake(5.0, 0.2, 20)
-	#
-	#if health <= 0:
-		### TODO: Configure player death animation or scene
-		#queue_free()
+	await attack_animation.animation_finished
+	attack_shape.process_mode = Node.PROCESS_MODE_DISABLED
+	is_currently_attacking = false

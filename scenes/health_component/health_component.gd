@@ -33,7 +33,7 @@ func take_damage(damage : float) -> void:
 		Global.enemy_took_damage.emit(health/max_health)
 		
 	if do_shake:
-		Utils.get_camera().start_shake(5.0, 0.2, 20)
+		Utils.get_camera().start_shake(15.0, 0.2, 20)
 	
 	if health <= 0:
 		died.emit()

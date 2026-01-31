@@ -135,7 +135,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_8afob"]
 resource_name = "attack"
-length = 1.1
+length = 0.001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -546,12 +546,14 @@ player_sprite = NodePath("Visuals/PlayerSprite")
 position = Vector2(0, -73)
 collision_mask = 10
 script = ExtResource("2_gmlin")
+contact_damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]
 rotation = 0.024418239
 shape = SubResource("CapsuleShape2D_8afob")
 
 [node name="AttackShape" type="Area2D" parent="." unique_id=1453370406]
+process_mode = 4
 position = Vector2(0, -73)
 collision_layer = 4
 collision_mask = 0
@@ -579,6 +581,6 @@ modulate = Color(0.47397572, 0.47397572, 0.47397578, 1)
 position = Vector2(-3, -73)
 scale = Vector2(1.675, 1.675)
 sprite_frames = SubResource("SpriteFrames_p47bc")
-animation = &"hood"
+animation = &"attack_up"
 autoplay = "move_sideways"
 flip_h = true

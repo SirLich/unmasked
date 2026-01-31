@@ -1188,6 +1188,7 @@ shadow_size = 62
 
 [node name="HitBox" parent="." unique_id=18722359 instance=ExtResource("2_wrlo7")]
 position = Vector2(1.5, -73)
+contact_damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=580527166]
 position = Vector2(0.5, -22)
@@ -1207,6 +1208,7 @@ sprite_frames = SubResource("SpriteFrames_73maf")
 
 [node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("8_8g10w")]
 process_mode = 3
+knockback = 300
 
 [node name="JumpExplodeAttack" type="CollisionShape2D" parent="EnemyAttack" unique_id=528120268]
 shape = SubResource("CircleShape2D_8g10w")
