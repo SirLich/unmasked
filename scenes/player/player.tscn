@@ -174,6 +174,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-17.999996, -54)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Shadow:shadow_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [45]
+}
 
 [sub_resource type="Animation" id="Animation_8afob"]
 resource_name = "attack"
@@ -349,6 +361,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -1504), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shadow:shadow_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00999999, 4.32),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 45]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dovo2"]
@@ -760,7 +784,7 @@ debug_color = Color(0.9656903, 0.18792239, 1.92523e-07, 0.41960785)
 max_health = 10
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("5_p47bc")]
-shadow_size = 91
+shadow_size = 45
 
 [node name="Visuals" type="Node2D" parent="." unique_id=2102001069]
 

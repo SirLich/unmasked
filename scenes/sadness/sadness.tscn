@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://68yn5m1pap7v" path="res://scenes/apathy/apathy.tscn" id="4_vb5ew"]
 [ext_resource type="Texture2D" uid="uid://boekyymsknfa7" path="res://assets/Sadness/Sadness_Body-3.png" id="5_kexi0"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_i6isk"]
+[ext_resource type="Texture2D" uid="uid://c6lq60sdgsfa0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-1.png" id="8_goxci"]
+[ext_resource type="Texture2D" uid="uid://dntwtq3kh64l0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-2.png" id="9_613l8"]
+[ext_resource type="Texture2D" uid="uid://i3l18dtaxexq" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-3.png" id="10_oj5vh"]
 [ext_resource type="Texture2D" uid="uid://d4dxsu3yrosu0" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-1.png" id="10_vb5ew"]
 [ext_resource type="Texture2D" uid="uid://bhrwlgfymlsn6" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-2.png" id="11_i6isk"]
 [ext_resource type="Texture2D" uid="uid://cqumv6l8watf2" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-3.png" id="12_lywmm"]
@@ -24,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dfkvctku0xh1y" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-12.png" id="21_thkgi"]
 [ext_resource type="Texture2D" uid="uid://cyaaafb2ghu7h" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-1.png" id="24_lywmm"]
 [ext_resource type="Texture2D" uid="uid://kj0rlcxj83qv" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-2.png" id="25_13kst"]
+[ext_resource type="PackedScene" uid="uid://esrufy8jrr3w" path="res://scenes/joy/enemy_attack.tscn" id="28_613l8"]
 
 [sub_resource type="Animation" id="Animation_p3ksq"]
 length = 0.001
@@ -194,6 +198,163 @@ _data = {
 &"die": SubResource("Animation_vb5ew")
 }
 
+[sub_resource type="Animation" id="Animation_613l8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9.917355, -274.38016)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyAttack:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyAttack/CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemyAttack/CollisionShape2D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [30.0]
+}
+
+[sub_resource type="Animation" id="Animation_goxci"]
+resource_name = "attack"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Body:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"default", &"puddle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.86666673),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(9.917355, -274.38016), Vector2(9.917355, -76.033066)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Body:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.86666673, 1.5333333, 2.1666667, 2.9, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.159, 1.159), Vector2(1, 1), Vector2(1.995, 1.995), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EnemyAttack:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.4333334, 4.3333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 3, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyAttack/CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.3333333, 2.9333334, 3.6333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [10.0, 134.0, 10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemyAttack/CollisionShape2D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.3333333, 2.9333334, 3.6333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [30.0, 590.0, 30.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_613l8"]
+_data = {
+&"RESET": SubResource("Animation_613l8"),
+&"attack": SubResource("Animation_goxci")
+}
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfkcg"]
 animations = [{
 "frames": [{
@@ -209,6 +370,20 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_goxci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_613l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oj5vh")
+}],
+"loop": true,
+"name": &"puddle",
+"speed": 5.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nx8ml"]
@@ -260,7 +435,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7g4ch"]
-radius = 120.50311
+radius = 86.579445
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vb5ew"]
 animations = [{
@@ -276,19 +451,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_613l8"]
+
+[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation", "puddle_attack_animation", "heal_timer")]
 script = ExtResource("1_bgcxr")
 health_component = NodePath("HealthComponent")
 hurt_animation = NodePath("HurtAnimation")
 transition_audio = ExtResource("2_p3ksq")
 death_animation = NodePath("DeathAnimation")
+puddle_attack_animation = NodePath("PuddleAttackAnimation")
+heal_timer = NodePath("HealTimer")
 next_enemy = ExtResource("4_vb5ew")
+
+[node name="HealTimer" type="Timer" parent="." unique_id=1238875914]
+wait_time = 0.5
+autostart = true
 
 [node name="HurtAnimation" type="AnimationPlayer" parent="." unique_id=582651119]
 libraries/ = SubResource("AnimationLibrary_p3ksq")
 
 [node name="DeathAnimation" type="AnimationPlayer" parent="." unique_id=1160297970]
 libraries/ = SubResource("AnimationLibrary_i6isk")
+
+[node name="PuddleAttackAnimation" type="AnimationPlayer" parent="." unique_id=1676227331]
+libraries/ = SubResource("AnimationLibrary_613l8")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("2_onmyj")]
 shadow_size = 96
@@ -301,7 +487,6 @@ scale = Vector2(0.605, 0.605)
 position = Vector2(11.570248, -163.63635)
 sprite_frames = SubResource("SpriteFrames_gfkcg")
 autoplay = "default"
-frame_progress = 0.32436007
 
 [node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=1723723208]
 material = SubResource("ShaderMaterial_nx8ml")
@@ -312,7 +497,7 @@ sprite_frames = SubResource("SpriteFrames_brsqf")
 contact_damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox" unique_id=617503866]
-position = Vector2(5, -119)
+position = Vector2(3, -63)
 shape = SubResource("CircleShape2D_7g4ch")
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("20_da6es")]
@@ -324,3 +509,11 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(3.9999924, -107)
 scale = Vector2(0.6464844, 0.6464844)
 sprite_frames = SubResource("SpriteFrames_vb5ew")
+
+[node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("28_613l8")]
+process_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttack" unique_id=1294353047]
+position = Vector2(0, 43)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_613l8")

@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="9_xgkvc"]
 [ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="10_r6fbw"]
 [ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="11_2d6o7"]
-[ext_resource type="PackedScene" uid="uid://hv5ado3nw55j" path="res://scenes/anger/anger.tscn" id="11_53woy"]
+[ext_resource type="PackedScene" uid="uid://cd82rxg1qpvjf" path="res://scenes/sadness/sadness.tscn" id="12_6lhwg"]
 [ext_resource type="Texture2D" uid="uid://cuj7lytjrfjpj" path="res://assets/Ground.png" id="12_nbuju"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
@@ -248,5 +248,4 @@ repeat_times = 20
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=762521019]
 texture = ExtResource("12_nbuju")
 
-[node name="Anger" parent="." unique_id=1133342481 instance=ExtResource("11_53woy")]
-position = Vector2(913, 378)
+[node name="Sadness" parent="." unique_id=1712075422 instance=ExtResource("12_6lhwg")]

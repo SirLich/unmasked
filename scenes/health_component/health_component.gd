@@ -20,6 +20,10 @@ func _physics_process(delta: float) -> void:
 	if is_invincible():
 		i_frames -= delta
 
+func heal(num):
+	health = min(max_health, health+num)
+	Global.enemy_took_damage.emit(health/max_health)
+
 func heal_full():
 	health = max_health
 	if not get_parent() is Player:
