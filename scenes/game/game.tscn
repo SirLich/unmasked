@@ -65,12 +65,14 @@ shader_parameter/wiggleMult = 0.0009999999747
 shader_parameter/chromaticAberrationOffset = 0.000999999975
 
 [node name="Game" type="Node2D" unique_id=1234032883]
+y_sort_enabled = true
 script = ExtResource("1_sul5r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=71547521]
 libraries/ = SubResource("AnimationLibrary_4j704")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=366164865]
+z_index = -1
 position = Vector2(1141, 608.00006)
 rotation = 0.0040509664
 scale = Vector2(1.9067129, 1.9067129)
@@ -83,15 +85,16 @@ script = ExtResource("5_5i0tg")
 
 [node name="PauseHandler" parent="." unique_id=796881595 instance=ExtResource("2_7h61r")]
 
+[node name="Joy" parent="." unique_id=759606728 instance=ExtResource("7_bdhmt")]
+position = Vector2(830, 379)
+move_speed = 100
+
 [node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
 position = Vector2(838, 634)
 rotation = -0.0035852133
 
-[node name="Joy" parent="." unique_id=759606728 instance=ExtResource("7_bdhmt")]
-position = Vector2(1387, 749)
-move_speed = 100
-
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
+z_index = 1
 color = Color(0, 0, 0, 1)
 invert_enabled = true
 polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
