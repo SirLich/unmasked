@@ -3,14 +3,38 @@
 [ext_resource type="Script" uid="uid://b61vnpn516s73" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="2_7h61r"]
 [ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_bdhmt"]
+[ext_resource type="Script" uid="uid://bai8dhoi53k3y" path="res://scenes/game/voice_over_manager.gd" id="2_vaxfo"]
+[ext_resource type="AudioStream" uid="uid://6va7t6ygiqyj" path="res://assets/Audio/VO/Unmasked-VO-Joy-2.wav" id="3_8b66f"]
+[ext_resource type="Script" uid="uid://banhgcqi3yco7" path="res://scenes/game/random_timer.gd" id="3_ftsea"]
+[ext_resource type="AudioStream" uid="uid://co5qauq3028bx" path="res://assets/Audio/VO/Unmasked-VO-Joy-3.wav" id="4_3jaai"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
+[ext_resource type="AudioStream" uid="uid://b7qramg31811o" path="res://assets/Audio/VO/Unmasked-VO-Joy-4.wav" id="5_1iff4"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
+[ext_resource type="AudioStream" uid="uid://cm31rcyjeqqlt" path="res://assets/Audio/VO/Unmasked-VO-Joy-5.wav" id="6_4vuph"]
+[ext_resource type="Texture2D" uid="uid://buoh1lslc0a3j" path="res://assets/curtain_part_right.png" id="7_5jirj"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
+[ext_resource type="AudioStream" uid="uid://lfk6p88do51q" path="res://assets/Audio/VO/Unmasked-VO-Joy-6.wav" id="7_wdnak"]
 [ext_resource type="Script" uid="uid://bbl2eso0epyts" path="res://scenes/game/hud.gd" id="8_2a8rs"]
 [ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="8_87uf6"]
+[ext_resource type="AudioStream" uid="uid://cg0k7jc0mymgq" path="res://assets/Audio/VO/Unmasked-VO-Joy-7.wav" id="8_h48ew"]
+[ext_resource type="AudioStream" uid="uid://b7h72fqks3c34" path="res://assets/Audio/VO/Unmasked-VO-Joy-8.wav" id="9_fty5b"]
 [ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="10_4j704"]
+[ext_resource type="AudioStream" uid="uid://ceixbjl6htcql" path="res://assets/Audio/VO/Unmasked-VO-Joy-9.wav" id="10_l2dhg"]
 [ext_resource type="Texture2D" uid="uid://cuj7lytjrfjpj" path="res://assets/Ground.png" id="11_5jirj"]
 [ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="11_kp23o"]
+[ext_resource type="AudioStream" uid="uid://v8ijsu8cqumm" path="res://assets/Audio/VO/Unmasked-VO-Anger-1.wav" id="11_l2dhg"]
+[ext_resource type="AudioStream" uid="uid://cc7hvhgntxsd4" path="res://assets/Audio/VO/Unmasked-VO-Anger-2.wav" id="12_firvq"]
+[ext_resource type="AudioStream" uid="uid://bnpemscwovov1" path="res://assets/Audio/VO/Unmasked-VO-Anger-3.wav" id="13_8krtj"]
+[ext_resource type="AudioStream" uid="uid://b4k5b5il65m5p" path="res://assets/Audio/VO/Unmasked-VO-Anger-4.wav" id="14_fydea"]
+[ext_resource type="AudioStream" uid="uid://bofplsgyqyqop" path="res://assets/Audio/VO/Unmasked-VO-Anger-5.wav" id="15_af6p5"]
+[ext_resource type="AudioStream" uid="uid://dx1y2b1iq83so" path="res://assets/Audio/VO/Unmasked-VO-Anger-6.wav" id="16_mumkj"]
+[ext_resource type="AudioStream" uid="uid://co1u8sqjw7ujw" path="res://assets/Audio/VO/Unmasked-VO-Anger-7.wav" id="17_2vph8"]
+[ext_resource type="AudioStream" uid="uid://dk3qj5clqt2b6" path="res://assets/Audio/VO/Unmasked-VO-Sad-1.wav" id="18_2vph8"]
+[ext_resource type="AudioStream" uid="uid://bcm3lsebnitky" path="res://assets/Audio/VO/Unmasked-VO-Sad-2.wav" id="19_0gkf7"]
+[ext_resource type="AudioStream" uid="uid://bwogxybnjnkgs" path="res://assets/Audio/VO/Unmasked-VO-Sad-3.wav" id="20_6ehwc"]
+[ext_resource type="AudioStream" uid="uid://bynr3qfgvo3eu" path="res://assets/Audio/VO/Unmasked-VO-Sad-4.wav" id="21_tyhjx"]
+[ext_resource type="AudioStream" uid="uid://gghne0y2x01" path="res://assets/Audio/VO/Unmasked-VO-Sad-5.wav" id="22_5q2xh"]
+[ext_resource type="AudioStream" uid="uid://dlg432vkctdck" path="res://assets/Audio/VO/Unmasked-VO-Sad-6.wav" id="23_sikks"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
 length = 0.001
@@ -49,6 +73,66 @@ _data = {
 &"slide_in": SubResource("Animation_2a8rs")
 }
 
+[sub_resource type="Animation" id="Animation_vaxfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1027, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1969, -51)]
+}
+
+[sub_resource type="Animation" id="Animation_5jirj"]
+resource_name = "curtains"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-985, -83), Vector2(-653, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1969, -51), Vector2(1583, -51)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vaxfo"]
+_data = {
+&"RESET": SubResource("Animation_vaxfo"),
+&"curtains": SubResource("Animation_5jirj")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_bdhmt"]
 font_size = 62
 
@@ -67,6 +151,23 @@ shader_parameter/chromaticAberrationOffset = 0.000999999975
 [node name="Game" type="Node2D" unique_id=1234032883]
 y_sort_enabled = true
 script = ExtResource("1_sul5r")
+
+[node name="VoiceOverManager" type="Node2D" parent="." unique_id=38298805 node_paths=PackedStringArray("timer", "audio_stream_player")]
+script = ExtResource("2_vaxfo")
+joy_voices = Array[AudioStream]([ExtResource("3_8b66f"), ExtResource("4_3jaai"), ExtResource("5_1iff4"), ExtResource("6_4vuph"), ExtResource("7_wdnak"), ExtResource("8_h48ew"), ExtResource("9_fty5b"), ExtResource("10_l2dhg")])
+anger_voices = Array[AudioStream]([ExtResource("11_l2dhg"), ExtResource("12_firvq"), ExtResource("13_8krtj"), ExtResource("14_fydea"), ExtResource("15_af6p5"), ExtResource("16_mumkj"), ExtResource("17_2vph8")])
+sadness_voices = Array[AudioStream]([ExtResource("18_2vph8"), ExtResource("19_0gkf7"), ExtResource("20_6ehwc"), ExtResource("21_tyhjx"), ExtResource("22_5q2xh"), ExtResource("23_sikks")])
+timer = NodePath("Timer")
+audio_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
+
+[node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
+wait_time = 5.680785739984433
+autostart = true
+script = ExtResource("3_ftsea")
+min_time = 3.0
+max_time = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=71547521]
 libraries/ = SubResource("AnimationLibrary_4j704")
@@ -96,7 +197,10 @@ rotation = -0.0035852133
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
 
-[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player")]
+[node name="HudAnimation" type="AnimationPlayer" parent="CanvasLayer" unique_id=2022718048]
+libraries/ = SubResource("AnimationLibrary_vaxfo")
+
+[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player", "hud_animation")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -239.0
@@ -108,6 +212,7 @@ theme_override_constants/separation = 0
 script = ExtResource("8_2a8rs")
 name_label = NodePath("Name")
 animation_player = NodePath("../../AnimationPlayer")
+hud_animation = NodePath("../HudAnimation")
 
 [node name="Name" type="Label" parent="CanvasLayer/HUD" unique_id=480834169]
 layout_mode = 2
@@ -127,6 +232,21 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 script = ExtResource("8_87uf6")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=122441481]
+offset_left = -1027.0
+offset_top = -83.0
+offset_right = -57.0
+offset_bottom = 1142.0
+texture = ExtResource("7_5jirj")
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=830002390]
+offset_left = 1969.0
+offset_top = -51.0
+offset_right = 2939.0093
+offset_bottom = 1174.0
+texture = ExtResource("7_5jirj")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=412873559]
 material = SubResource("ShaderMaterial_4j704")

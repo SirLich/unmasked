@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://68yn5m1pap7v"]
+
+[ext_resource type="Script" uid="uid://cirib2rxsbxbn" path="res://scenes/apathy/apathy.gd" id="1_0tglv"]
+[ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="1_0uvqh"]
+[ext_resource type="Texture2D" uid="uid://ctau7kud01iqx" path="res://assets/Anger/Anger_Body/Anger_Body-1.png" id="2_0tglv"]
+[ext_resource type="Texture2D" uid="uid://du4m80wgj4rgq" path="res://assets/Anger/Anger_Body/Anger_Body-2.png" id="3_4cdsl"]
+[ext_resource type="Texture2D" uid="uid://bb31vpntxkn7" path="res://assets/Anger/Anger_Body/Anger_Body-3.png" id="4_iaqa0"]
+[ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="5_5spgv"]
+[ext_resource type="Texture2D" uid="uid://dtbwj1mp0juwe" path="res://assets/Anger/Anger_Mask/Anger_Mask-1.png" id="6_2fi32"]
+[ext_resource type="Texture2D" uid="uid://bqpk08nl317eu" path="res://assets/Anger/Anger_Mask/Anger_Mask-2.png" id="7_cpab7"]
+[ext_resource type="Texture2D" uid="uid://bblxno5vxv238" path="res://assets/Anger/Anger_Mask/Anger_Mask-3.png" id="8_ug2d0"]
+[ext_resource type="Texture2D" uid="uid://doalho5bil6qy" path="res://assets/Anger/Anger_Mask/Anger_Mask-4.png" id="9_ggsny"]
+[ext_resource type="Texture2D" uid="uid://dnh7b6j18olx8" path="res://assets/Anger/Anger_Mask/Anger_Mask-5.png" id="10_d02k5"]
+[ext_resource type="Texture2D" uid="uid://bfv3hudkhemkf" path="res://assets/Anger/Anger_Mask/Anger_Mask-6.png" id="11_3tu7u"]
+[ext_resource type="Texture2D" uid="uid://d22funtidr5hi" path="res://assets/Anger/Anger_Mask/Anger_Mask-7.png" id="12_ltp08"]
+[ext_resource type="Texture2D" uid="uid://cfu124a2m2vfh" path="res://assets/Anger/Anger_Mask/Anger_Mask-8.png" id="13_lkcun"]
+[ext_resource type="Texture2D" uid="uid://dy881vlt26ju0" path="res://assets/Anger/Anger_Mask/Anger_Mask-9.png" id="14_uwv62"]
+[ext_resource type="Texture2D" uid="uid://b0t7sxn2f1jt8" path="res://assets/Anger/Anger_Mask/Anger_Mask-10.png" id="15_ffmps"]
+[ext_resource type="Texture2D" uid="uid://d0w62vkauq1m1" path="res://assets/Anger/Anger_Mask/Anger_Mask-11.png" id="16_msb0s"]
+[ext_resource type="Texture2D" uid="uid://cqe3xqvwdpnfh" path="res://assets/Anger/Anger_Mask/Anger_Mask-12.png" id="17_plma4"]
+[ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="18_yy5jl"]
+[ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="19_cmoth"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4b0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0tglv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4cdsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iaqa0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1g4d"]
+shader = ExtResource("5_5spgv")
+shader_parameter/my_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtatv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2fi32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cpab7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ug2d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ggsny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d02k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3tu7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ltp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lkcun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uwv62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ffmps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_msb0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_plma4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlv2h"]
+radius = 120.50311
+
+[node name="Apathy" type="Node2D" unique_id=167018356]
+script = ExtResource("1_0tglv")
+
+[node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("1_0uvqh")]
+shadow_size = 96
+
+[node name="Visuals" type="Node2D" parent="." unique_id=779325607]
+scale = Vector2(0.605, 0.605)
+
+[node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1372649894]
+position = Vector2(11.570248, -251.23965)
+sprite_frames = SubResource("SpriteFrames_y4b0t")
+autoplay = "default"
+
+[node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=1472428001]
+material = SubResource("ShaderMaterial_i1g4d")
+position = Vector2(3.305785, -213.22313)
+sprite_frames = SubResource("SpriteFrames_rtatv")
+
+[node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("18_yy5jl")]
+take_knockback = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox" unique_id=1104129634]
+position = Vector2(5, -119)
+shape = SubResource("CircleShape2D_qlv2h")
+
+[node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("19_cmoth")]
+invincibility_time = 0.1

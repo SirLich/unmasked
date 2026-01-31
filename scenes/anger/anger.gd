@@ -25,7 +25,7 @@ func _ready() -> void:
 	do_dash()
 	
 func do_intro():
-	Global.fight_started.emit("Anger")
+	Global.fight_started.emit(Global.EnemyType.ANGER)
 	SoundManager.play_music(angry_music)
 	
 func on_hurt():
@@ -52,6 +52,8 @@ func play_audio(audio, is_voice = false):
 func do_dash():
 	if is_dead:
 		return
+		
+	await Utils.wait(1.0)
 		
 	var dir = Utils.get_direction_to_player(self)
 	var pos = global_position + (dir * dash_distance)
