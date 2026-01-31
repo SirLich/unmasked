@@ -3,6 +3,7 @@ class_name Joy
 
 @export var move_speed = 200
 @export var damage_marker_prototype : PackedScene
+@export var spike_prototype : PackedScene
 @export var small_jump_distance = 200
 @export var small_jump_delay = 0.5
 @export var big_jump_delay = 0.5
@@ -11,6 +12,9 @@ class_name Joy
 @export var num_small_jumps_max = 6
 @export var idle_time_min = 4
 @export var idle_time_max = 8
+@export var num_spikes_min = 10
+@export var num_spikes_max = 15
+@export var num_time_between_spikes = 0.1
 
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
@@ -24,6 +28,13 @@ func do_idle():
 	await get_tree().process_frame
 	print("do_idle")
 	animation_player.play("idle")
+	var nav = Utils.get_first_of_type(Nav) as Nav
+	for i in range(randi_range(num_spikes_min, num_spikes_max)):
+		var new_spike = spike_prototype.instantiate()
+		new_spike.global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon)
+		add_sibling(new_spike)
+		await Utils.wait(num_time_between_spikes)
+		
 	await Utils.wait(randf_range(idle_time_min, idle_time_max))
 	if randf() > 0.2:
 		do_big_jump()
@@ -54,6 +65,7 @@ func do_big_jump():
 	print("do_big_jump")
 	var attack_pos = Utils.get_player().global_position
 	var new_damage_marker = damage_marker_prototype.instantiate() as Node2D
+	new_damage_marker.scale *= 0.6
 	add_sibling(new_damage_marker)
 	new_damage_marker.global_position = attack_pos
 	

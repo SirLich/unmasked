@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
+[ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="6_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
 
 [node name="Game" type="Node2D" unique_id=1234032883]
@@ -22,3 +23,38 @@ script = ExtResource("5_5i0tg")
 [node name="Joy" parent="." unique_id=759606728 instance=ExtResource("7_bdhmt")]
 position = Vector2(456, 286)
 move_speed = 100
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1703217116]
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
+script = ExtResource("6_5i0tg")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Polygon2D" unique_id=1232552886]
+offset_left = -3209.0
+offset_top = -2404.0
+offset_right = -421.0
+offset_bottom = 2336.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Polygon2D" unique_id=1123906461]
+offset_left = 2457.0
+offset_top = -2046.0
+offset_right = 5245.0
+offset_bottom = 2694.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Polygon2D" unique_id=473793360]
+offset_left = -1933.0
+offset_top = 1590.0
+offset_right = 3867.0
+offset_bottom = 6330.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Polygon2D" unique_id=708558857]
+offset_left = -2047.0
+offset_top = -5118.0
+offset_right = 3753.0
+offset_bottom = -378.0
+color = Color(0, 0, 0, 1)

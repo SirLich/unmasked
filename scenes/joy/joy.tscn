@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="2_8c6cf"]
 [ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="2_mbnm7"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="2_wrlo7"]
+[ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_ji81p"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_us03m"]
 [ext_resource type="PackedScene" uid="uid://dpoqyir7hlw2i" path="res://scenes/projectile/projectile.tscn" id="6_msrb8"]
 [ext_resource type="PackedScene" uid="uid://esrufy8jrr3w" path="res://scenes/joy/enemy_attack.tscn" id="8_8g10w"]
@@ -142,6 +143,7 @@ radius = 13.038404
 [node name="Joy" type="Node2D" unique_id=759606728 node_paths=PackedStringArray("animation_player", "jump_projectile")]
 script = ExtResource("1_c43gh")
 damage_marker_prototype = ExtResource("2_mbnm7")
+spike_prototype = ExtResource("3_ji81p")
 animation_player = NodePath("AnimationPlayer")
 jump_projectile = NodePath("JumpProjectile")
 
