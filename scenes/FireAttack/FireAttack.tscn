@@ -1,0 +1,78 @@
+[gd_scene load_steps=15 format=3 uid="uid://b63bfjer8r2d6"]
+
+[ext_resource type="Script" path="res://scenes/spike/spike.gd" id="1_77fwh"]
+[ext_resource type="PackedScene" uid="uid://qcdqy265pju8" path="res://scenes/damage_marker/damage_marker.tscn" id="2_8cllb"]
+[ext_resource type="Script" path="res://scenes/player/attack.gd" id="3_jxhnx"]
+[ext_resource type="Texture2D" uid="uid://dwo65hbrnf4mu" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-1.png" id="4_j1ifo"]
+[ext_resource type="Texture2D" uid="uid://1m0vswp0226j" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-2.png" id="5_xihhp"]
+[ext_resource type="Texture2D" uid="uid://c1w8d2bf717sc" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-3.png" id="6_i42ck"]
+[ext_resource type="Texture2D" uid="uid://c3biwc1j73dba" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-4.png" id="7_8drqf"]
+[ext_resource type="Texture2D" uid="uid://dfumvacqi7auh" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-5.png" id="8_ls536"]
+[ext_resource type="Texture2D" uid="uid://c8jghdnb4xiuv" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-6.png" id="9_ya822"]
+[ext_resource type="Texture2D" uid="uid://2unln5621a2g" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-7.png" id="10_746sx"]
+[ext_resource type="Texture2D" uid="uid://bghrtglfjuwal" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-8.png" id="11_mpupi"]
+[ext_resource type="Texture2D" uid="uid://d0u44bujcq0ey" path="res://assets/Anger/Anger_Fireball/Anger_Fireball-9.png" id="12_k45mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bj6n"]
+size = Vector2(41, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dypq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j1ifo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xihhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i42ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8drqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ls536")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ya822")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_746sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mpupi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k45mj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FireAttack" type="Node2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_77fwh")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="DamageMarker" parent="." instance=ExtResource("2_8cllb")]
+scale = Vector2(1e-05, 1e-05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Attack" type="Area2D" parent="."]
+process_mode = 4
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_jxhnx")
+damage = 1
+metadata/_custom_type_script = "uid://cmuanwm5huih4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(-2, -5)
+shape = SubResource("RectangleShape2D_3bj6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dypq2")
+autoplay = "default"
+frame_progress = 0.0203315
