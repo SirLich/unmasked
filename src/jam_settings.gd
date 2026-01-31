@@ -13,3 +13,5 @@ class_name JamSettings
 @export var settings_scene : PackedScene
 @export var game_scene : PackedScene
 @export var pause_scene : PackedScene
+
+@export var audio_speed = 1

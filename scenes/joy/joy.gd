@@ -24,16 +24,21 @@ class_name Joy
 @export var animation_player: AnimationPlayer
 @export var attack_animations: AnimationPlayer
 @export var clap_animation: AnimationPlayer
+@export var hurt_animation: AnimationPlayer
 
 func _ready() -> void:
 	do_intro()
+
+func play_audio(audio):
+	SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
+	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
 	
 func do_intro():
 	health_component.invulnerable =  true
 	animation_player.play("idle")
 	await Utils.wait(0.75)
-	SoundManager.play_sound(intro_audio)
-	await Utils.wait(intro_audio.get_length())
+	await play_audio(intro_audio)
+	Global.fight_started.emit("Joy")
 	health_component.invulnerable = false
 
 	do_small_jumps()

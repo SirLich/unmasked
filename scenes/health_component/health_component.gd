@@ -24,6 +24,9 @@ func take_damage(damage : float) -> void:
 	health -= damage
 	i_frames = invincibility_time
 	
+	if not get_parent() is Player:
+		Global.enemy_took_damage.emit(health/max_health)
+		
 	if do_shake:
 		Utils.get_camera().start_shake(5.0, 0.2, 20)
 	
