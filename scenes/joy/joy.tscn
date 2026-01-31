@@ -45,6 +45,8 @@
 [ext_resource type="Texture2D" uid="uid://bagkrfynjgi3y" path="res://assets/JoyMask/Joy_Mask-10.png" id="31_tbqy4"]
 [ext_resource type="Texture2D" uid="uid://typ81qr1eshi" path="res://assets/JoyMask/Joy_Mask-11.png" id="32_sh5x1"]
 [ext_resource type="Texture2D" uid="uid://cu4xup1hep2ed" path="res://assets/JoyMask/Joy_Mask-12.png" id="33_srsy6"]
+[ext_resource type="Texture2D" uid="uid://bcgm2kwlarb82" path="res://assets/Anger/Anger_Transition/Anger_Transition-1.png" id="46_srsy6"]
+[ext_resource type="Texture2D" uid="uid://cmc1drcj54t7i" path="res://assets/Anger/Anger_Transition/Anger_Transition-2.png" id="47_xhlxp"]
 
 [sub_resource type="Animation" id="Animation_ji81p"]
 length = 0.001
@@ -990,7 +992,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_4xve6"]
-length = 0.001
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1000,7 +1002,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [0]
 }
 tracks/1/type = "value"
@@ -1010,15 +1012,51 @@ tracks/1/path = NodePath("Visuals/All/Body/Head/Mask:material:shader_parameter/m
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.13333334),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TransitionSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TransitionSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_mj0x5"]
 resource_name = "die"
-length = 1.4333333
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1042,6 +1080,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.0000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TransitionSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.0000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TransitionSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.7333333, 4.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_p6ddf"]
@@ -1138,6 +1212,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("33_srsy6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3br2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_srsy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_xhlxp")
 }],
 "loop": true,
 "name": &"default",
@@ -1293,3 +1381,10 @@ rotation = 1.0730679
 texture = ExtResource("14_pfiip")
 offset = Vector2(-1.6528931, 104.132225)
 flip_h = true
+
+[node name="TransitionSprite" type="AnimatedSprite2D" parent="." unique_id=456004676]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(15, -188.99998)
+scale = Vector2(0.795, 0.795)
+sprite_frames = SubResource("SpriteFrames_3br2b")
