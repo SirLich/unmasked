@@ -20,7 +20,6 @@ class_name Joy
 @export var joy_music : AudioStream
 @export var intro_audio : AudioStream
 @export var transition_audio : AudioStream
-@export var joy_audio_in_order : Array[AudioStream]
 var audio_index = 0
 @export var small_jump_land_sound : AudioStream
 @export var large_jump_land_sound : AudioStream
@@ -47,8 +46,6 @@ func on_hurt():
 
 func on_died():
 	Global.enemy_died.emit()
-	if current_voice:
-		current_voice.stop()
 	is_dead = true
 	animation_player.play("idle")
 	play_audio(transition_audio)
@@ -61,26 +58,13 @@ func on_died():
 	self.queue_free()
 
 	
-func play_audio(audio, is_voice = false):
+func play_audio(audio):
 	if Global.settings.skip_audio:
 		return
 	
 	
 	var new_audio = SoundManager.play_sound_with_pitch(audio, Global.settings.audio_speed)
-	if is_voice:
-		current_voice = new_audio
 	await Utils.wait(intro_audio.get_length() / Global.settings.audio_speed)
-
-var current_voice : AudioStreamPlayer = null
-var is_playing_voice = false
-func play_next_audio_clip():
-	if is_playing_voice:
-		return
-		
-	is_playing_voice = true
-	await play_audio(joy_audio_in_order[audio_index], true)
-	is_playing_voice = false
-	audio_index += 1
 
 func stop_audio():
 	pass
@@ -92,7 +76,7 @@ func do_intro():
 	animation_player.play("idle")
 	await Utils.wait(0.75)
 	await play_audio(intro_audio)
-	Global.fight_started.emit("Joy")
+	Global.fight_started.emit(Global.EnemyType.JOY)
 	SoundManager.play_music(joy_music)
 	health_component.invulnerable = false
 
@@ -104,7 +88,6 @@ func do_idle():
 		
 	await get_tree().process_frame
 	print("do_idle")
-	play_next_audio_clip()
 	clap_animation.play("clap")
 	await clap_animation.animation_finished
 	animation_player.play("idle")
@@ -157,8 +140,6 @@ func do_big_jump():
 	if is_dead:
 		return 
 	
-	play_next_audio_clip()
-
 	await get_tree().process_frame
 	var attack_pos = Utils.get_player().global_position
 	animation_player.play("big_jump_prep", 0.2)

@@ -25,7 +25,7 @@ func _ready() -> void:
 	do_dash()
 	
 func do_intro():
-	Global.fight_started.emit("Anger")
+	Global.fight_started.emit(Global.EnemyType.ANGER)
 	SoundManager.play_music(angry_music)
 	
 func on_hurt():

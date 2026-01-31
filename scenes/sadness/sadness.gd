@@ -18,7 +18,7 @@ func _ready() -> void:
 	await Utils.wait(2.9)
 	
 func do_intro():
-	Global.fight_started.emit("Sadness")
+	Global.fight_started.emit(Global.EnemyType.SADNESS)
 	SoundManager.play_music(sad_music)
 	
 func on_hurt():
