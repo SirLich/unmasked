@@ -61,8 +61,8 @@ shader_parameter/vignette_color = Color(0, 0, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
 shader = ExtResource("11_kp23o")
 shader_parameter/brightnessMult = 4.30000006407516
-shader_parameter/wiggleMult = 0.005
-shader_parameter/chromaticAberrationOffset = 0.00199999995
+shader_parameter/wiggleMult = 0.0009999999747
+shader_parameter/chromaticAberrationOffset = 0.000999999975
 
 [node name="Game" type="Node2D" unique_id=1234032883]
 script = ExtResource("1_sul5r")
