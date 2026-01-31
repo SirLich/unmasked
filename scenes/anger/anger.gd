@@ -53,6 +53,8 @@ func do_dash():
 	if is_dead:
 		return
 		
+	await Utils.wait(1.0)
+		
 	var dir = Utils.get_direction_to_player(self)
 	var pos = global_position + (dir * dash_distance)
 	

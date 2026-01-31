@@ -1,25 +1,28 @@
 [gd_scene format=3 uid="uid://cd82rxg1qpvjf"]
 
 [ext_resource type="Script" uid="uid://bnnbqjaco5jpr" path="res://scenes/sadness/sadness.gd" id="1_bgcxr"]
+[ext_resource type="AudioStream" uid="uid://crfaxi6ka2dd6" path="res://assets/Audio/Music/Unmasked-Music-SadMusic.wav" id="2_kexi0"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="2_onmyj"]
+[ext_resource type="AudioStream" uid="uid://cra6p4h18kqqo" path="res://assets/Audio/VO/Unmasked-VO-Sad-to-Apathy.wav" id="2_p3ksq"]
 [ext_resource type="Texture2D" uid="uid://bwrpedeguhebr" path="res://assets/Sadness/Sadness_Body-1.png" id="3_onmyj"]
 [ext_resource type="Texture2D" uid="uid://cswdpiiiudcgf" path="res://assets/Sadness/Sadness_Body-2.png" id="4_p3ksq"]
+[ext_resource type="PackedScene" uid="uid://68yn5m1pap7v" path="res://scenes/apathy/apathy.tscn" id="4_vb5ew"]
 [ext_resource type="Texture2D" uid="uid://boekyymsknfa7" path="res://assets/Sadness/Sadness_Body-3.png" id="5_kexi0"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_i6isk"]
-[ext_resource type="Texture2D" uid="uid://dtbwj1mp0juwe" path="res://assets/Anger/Anger_Mask/Anger_Mask-1.png" id="7_lywmm"]
-[ext_resource type="Texture2D" uid="uid://bqpk08nl317eu" path="res://assets/Anger/Anger_Mask/Anger_Mask-2.png" id="8_13kst"]
-[ext_resource type="Texture2D" uid="uid://bblxno5vxv238" path="res://assets/Anger/Anger_Mask/Anger_Mask-3.png" id="9_goxci"]
-[ext_resource type="Texture2D" uid="uid://doalho5bil6qy" path="res://assets/Anger/Anger_Mask/Anger_Mask-4.png" id="10_613l8"]
-[ext_resource type="Texture2D" uid="uid://dnh7b6j18olx8" path="res://assets/Anger/Anger_Mask/Anger_Mask-5.png" id="11_oj5vh"]
-[ext_resource type="Texture2D" uid="uid://bfv3hudkhemkf" path="res://assets/Anger/Anger_Mask/Anger_Mask-6.png" id="12_sk10g"]
-[ext_resource type="Texture2D" uid="uid://d22funtidr5hi" path="res://assets/Anger/Anger_Mask/Anger_Mask-7.png" id="13_mplce"]
-[ext_resource type="Texture2D" uid="uid://cfu124a2m2vfh" path="res://assets/Anger/Anger_Mask/Anger_Mask-8.png" id="14_gyvej"]
-[ext_resource type="Texture2D" uid="uid://dy881vlt26ju0" path="res://assets/Anger/Anger_Mask/Anger_Mask-9.png" id="15_xclg2"]
-[ext_resource type="Texture2D" uid="uid://b0t7sxn2f1jt8" path="res://assets/Anger/Anger_Mask/Anger_Mask-10.png" id="16_thkgi"]
-[ext_resource type="Texture2D" uid="uid://d0w62vkauq1m1" path="res://assets/Anger/Anger_Mask/Anger_Mask-11.png" id="17_xgcs3"]
-[ext_resource type="Texture2D" uid="uid://cqe3xqvwdpnfh" path="res://assets/Anger/Anger_Mask/Anger_Mask-12.png" id="18_8cvl0"]
+[ext_resource type="Texture2D" uid="uid://d4dxsu3yrosu0" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-1.png" id="10_vb5ew"]
+[ext_resource type="Texture2D" uid="uid://bhrwlgfymlsn6" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-2.png" id="11_i6isk"]
+[ext_resource type="Texture2D" uid="uid://cqumv6l8watf2" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-3.png" id="12_lywmm"]
+[ext_resource type="Texture2D" uid="uid://m31enrl1v8x4" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-4.png" id="13_13kst"]
+[ext_resource type="Texture2D" uid="uid://br57wo6qaans3" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-5.png" id="14_goxci"]
+[ext_resource type="Texture2D" uid="uid://2kq7j4b654og" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-6.png" id="15_613l8"]
+[ext_resource type="Texture2D" uid="uid://be2ykfd7xyqgy" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-7.png" id="16_oj5vh"]
+[ext_resource type="Texture2D" uid="uid://crlt5bj4res1q" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-8.png" id="17_sk10g"]
+[ext_resource type="Texture2D" uid="uid://d04oqbbbqil4o" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-9.png" id="18_mplce"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="19_7lnbb"]
+[ext_resource type="Texture2D" uid="uid://b6ixcpxnfiygw" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-10.png" id="19_gyvej"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="20_da6es"]
+[ext_resource type="Texture2D" uid="uid://hxhytmqqhjhr" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-11.png" id="20_xclg2"]
+[ext_resource type="Texture2D" uid="uid://dfkvctku0xh1y" path="res://assets/Sadness/Sadness_Mask/Sadness_Mask-12.png" id="21_thkgi"]
 
 [sub_resource type="Animation" id="Animation_p3ksq"]
 length = 0.001
@@ -82,40 +85,40 @@ shader_parameter/my_modulate = Color(1, 1, 1, 1)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_lywmm")
+"texture": ExtResource("10_vb5ew")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_13kst")
+"texture": ExtResource("11_i6isk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_goxci")
+"texture": ExtResource("12_lywmm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_613l8")
+"texture": ExtResource("13_13kst")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_oj5vh")
+"texture": ExtResource("14_goxci")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_sk10g")
+"texture": ExtResource("15_613l8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_mplce")
+"texture": ExtResource("16_oj5vh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_gyvej")
+"texture": ExtResource("17_sk10g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_xclg2")
+"texture": ExtResource("18_mplce")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_thkgi")
+"texture": ExtResource("19_gyvej")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_xgcs3")
+"texture": ExtResource("20_xclg2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_8cvl0")
+"texture": ExtResource("21_thkgi")
 }],
 "loop": true,
 "name": &"default",
@@ -125,10 +128,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7g4ch"]
 radius = 120.50311
 
-[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("hurt_animation", "death_animation")]
+[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation")]
 script = ExtResource("1_bgcxr")
+sad_music = ExtResource("2_kexi0")
+health_component = NodePath("HealthComponent")
 hurt_animation = NodePath("HurtAnimation")
+transition_audio = ExtResource("2_p3ksq")
 death_animation = NodePath("DeathAnimation")
+next_enemy = ExtResource("4_vb5ew")
 
 [node name="HurtAnimation" type="AnimationPlayer" parent="." unique_id=582651119]
 libraries/ = SubResource("AnimationLibrary_p3ksq")
@@ -143,14 +150,14 @@ modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.605, 0.605)
 
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=2063854045]
-position = Vector2(11.570248, -251.23965)
+position = Vector2(11.570248, -163.63635)
 sprite_frames = SubResource("SpriteFrames_gfkcg")
 autoplay = "default"
-frame_progress = 0.10048706
+frame_progress = 0.36592346
 
 [node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=1723723208]
 material = SubResource("ShaderMaterial_nx8ml")
-position = Vector2(9.917355, -284.29752)
+position = Vector2(9.917355, -274.38016)
 sprite_frames = SubResource("SpriteFrames_brsqf")
 
 [node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("19_7lnbb")]

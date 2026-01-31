@@ -175,6 +175,7 @@ position = Vector2(3.305785, -213.22313)
 sprite_frames = SubResource("SpriteFrames_wyuln")
 
 [node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("19_od12m")]
+take_knockback = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox" unique_id=1098490921]
 position = Vector2(5, -119)

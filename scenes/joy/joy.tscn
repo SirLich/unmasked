@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://6va7t6ygiqyj" path="res://assets/Audio/VO/Unmasked-VO-Joy-2.wav" id="5_fd4ow"]
 [ext_resource type="AudioStream" uid="uid://bf75tepma70eq" path="res://assets/Audio/VO/Unmasked-VO-Joy-to-Anger.wav" id="5_t0my5"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_us03m"]
+[ext_resource type="AudioStream" uid="uid://deogd74xhreit" path="res://assets/Audio/Music/Unmasked-Music-Joy-Loop.wav" id="5_whtbr"]
 [ext_resource type="PackedScene" uid="uid://dpoqyir7hlw2i" path="res://scenes/projectile/projectile.tscn" id="6_msrb8"]
 [ext_resource type="AudioStream" uid="uid://co5qauq3028bx" path="res://assets/Audio/VO/Unmasked-VO-Joy-3.wav" id="6_vv72q"]
 [ext_resource type="AudioStream" uid="uid://b7qramg31811o" path="res://assets/Audio/VO/Unmasked-VO-Joy-4.wav" id="7_u62t4"]
@@ -1241,6 +1242,7 @@ script = ExtResource("1_c43gh")
 damage_marker_prototype = ExtResource("2_mbnm7")
 next_enemy = ExtResource("3_xhlxp")
 spike_prototype = ExtResource("3_ji81p")
+joy_music = ExtResource("5_whtbr")
 intro_audio = ExtResource("4_s6p07")
 transition_audio = ExtResource("5_t0my5")
 joy_audio_in_order = Array[AudioStream]([ExtResource("5_fd4ow"), ExtResource("6_vv72q"), ExtResource("7_u62t4"), ExtResource("8_t0my5"), ExtResource("9_h5eqc"), ExtResource("10_qof60"), ExtResource("11_tqyrg"), ExtResource("12_67ype")])

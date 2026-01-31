@@ -17,6 +17,7 @@ class_name Joy
 @export var num_time_between_spikes = 0.01
 
 @export_group("Audio")
+@export var joy_music : AudioStream
 @export var intro_audio : AudioStream
 @export var transition_audio : AudioStream
 @export var joy_audio_in_order : Array[AudioStream]
@@ -86,11 +87,13 @@ func stop_audio():
 	
 	
 func do_intro():
+	SoundManager.stop_music(1)
 	health_component.invulnerable =  true
 	animation_player.play("idle")
 	await Utils.wait(0.75)
 	await play_audio(intro_audio)
 	Global.fight_started.emit("Joy")
+	SoundManager.play_music(joy_music)
 	health_component.invulnerable = false
 
 	do_small_jumps()

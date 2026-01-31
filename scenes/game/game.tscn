@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
+[ext_resource type="Texture2D" uid="uid://buoh1lslc0a3j" path="res://assets/curtain_part_right.png" id="7_5jirj"]
 [ext_resource type="PackedScene" uid="uid://nqq7fmjjjqi2" path="res://scenes/joy/joy.tscn" id="7_bdhmt"]
 [ext_resource type="Script" uid="uid://bbl2eso0epyts" path="res://scenes/game/hud.gd" id="8_2a8rs"]
 [ext_resource type="Script" uid="uid://cu5w53moduiy0" path="res://scenes/game/health_bar.gd" id="8_87uf6"]
@@ -47,6 +48,66 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_87uf6"),
 &"slide_in": SubResource("Animation_2a8rs")
+}
+
+[sub_resource type="Animation" id="Animation_vaxfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1027, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1969, -51)]
+}
+
+[sub_resource type="Animation" id="Animation_5jirj"]
+resource_name = "curtains"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-985, -83), Vector2(-653, -83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1969, -51), Vector2(1583, -51)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vaxfo"]
+_data = {
+&"RESET": SubResource("Animation_vaxfo"),
+&"curtains": SubResource("Animation_5jirj")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_bdhmt"]
@@ -96,7 +157,10 @@ rotation = -0.0035852133
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
 
-[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player")]
+[node name="HudAnimation" type="AnimationPlayer" parent="CanvasLayer" unique_id=2022718048]
+libraries/ = SubResource("AnimationLibrary_vaxfo")
+
+[node name="HUD" type="VBoxContainer" parent="CanvasLayer" unique_id=1444825085 node_paths=PackedStringArray("name_label", "animation_player", "hud_animation")]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -239.0
@@ -108,6 +172,7 @@ theme_override_constants/separation = 0
 script = ExtResource("8_2a8rs")
 name_label = NodePath("Name")
 animation_player = NodePath("../../AnimationPlayer")
+hud_animation = NodePath("../HudAnimation")
 
 [node name="Name" type="Label" parent="CanvasLayer/HUD" unique_id=480834169]
 layout_mode = 2
@@ -127,6 +192,21 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 script = ExtResource("8_87uf6")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=122441481]
+offset_left = -1027.0
+offset_top = -83.0
+offset_right = -57.0
+offset_bottom = 1142.0
+texture = ExtResource("7_5jirj")
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=830002390]
+offset_left = 1969.0
+offset_top = -51.0
+offset_right = 2939.0093
+offset_bottom = 1174.0
+texture = ExtResource("7_5jirj")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=412873559]
 material = SubResource("ShaderMaterial_4j704")
