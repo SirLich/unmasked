@@ -20,6 +20,13 @@ var facing_direction = 1
 var last_direction:Vector2
 var speed_mod = 1
 var dash_time = 0
+enum AnimDirection {
+	UP,
+	DOWN,
+	SIDEWAYS,
+	IDLE
+}
+var current_anim_direction = AnimDirection.SIDEWAYS
 
 var is_currently_attacking = false
 
@@ -35,6 +42,19 @@ func do_entrance():
 	await player_sprite.animation_finished
 	await Utils.wait(3)
 	can_move = true
+	
+func get_anim_direction(direction: Vector2) -> AnimDirection:
+	var anim_direction = AnimDirection.SIDEWAYS
+	var x_size = abs(direction.x)
+	var y_size = abs(direction.y)
+	
+	if y_size > x_size:
+		if direction.y < 0:
+			anim_direction = AnimDirection.UP
+		else:
+			anim_direction = AnimDirection.DOWN
+			
+	return anim_direction
 	
 func _physics_process(delta: float) -> void:
 	if not can_move:
@@ -61,22 +81,19 @@ func _physics_process(delta: float) -> void:
 		scale.x = facing_direction
 		queue_redraw()
 	
-	var x_size = abs(direction.x)
-	var y_size = abs(direction.y)
+	current_anim_direction = get_anim_direction(direction)
 	
 	if is_currently_attacking:
-		if y_size > x_size:
-			if direction.y < 0:
-				player_sprite.play("attack_up")
-			else:
-				player_sprite.play("attack_down")
+		if current_anim_direction == AnimDirection.UP:
+			player_sprite.play("attack_up")
+		elif current_anim_direction == AnimDirection.DOWN:
+			player_sprite.play("attack_down")
 		else:
 			player_sprite.play("attack_sideways")
 	else:
-		if y_size > x_size:
-			if direction.y < 0:
+		if current_anim_direction == AnimDirection.UP:
 				player_sprite.play("move_up")
-			else:
+		elif current_anim_direction == AnimDirection.DOWN:
 				player_sprite.play("move_down")
 		else:
 			player_sprite.play("move_sideways")
@@ -118,7 +135,12 @@ func do_attack():
 	SoundManager.play_sound(player_attack_sound)
 	is_currently_attacking = true
 	attack_shape.process_mode = Node.PROCESS_MODE_ALWAYS
-	attack_animation.play("attack", -1, attack_speed)
+	if current_anim_direction == AnimDirection.UP:
+		attack_animation.play("attack_up", -1, attack_speed)
+	elif current_anim_direction == AnimDirection.DOWN:
+		attack_animation.play("attack_down", -1, attack_speed)
+	else:
+		attack_animation.play("attack", -1, attack_speed)
 	await attack_animation.animation_finished
 	attack_shape.process_mode = Node.PROCESS_MODE_DISABLED
 	is_currently_attacking = false

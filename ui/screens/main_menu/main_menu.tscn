@@ -3,20 +3,7 @@
 [ext_resource type="Script" uid="uid://bgsma7db6pfgo" path="res://ui/screens/main_menu/main_menu.gd" id="1_aiivd"]
 [ext_resource type="Texture2D" uid="uid://c483awpjdxqx1" path="res://assets/curtain.png" id="2_aiivd"]
 [ext_resource type="PackedScene" uid="uid://bmgv2ax1c7oav" path="res://ui/elements/buttons/large_button.tscn" id="2_qoncc"]
-[ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="4_kadtk"]
-[ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="5_k0wwq"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hut5v"]
-shader = ExtResource("4_kadtk")
-shader_parameter/outerRadius = 1.0000000475
-shader_parameter/MainAlpha = 0.5910000280725
-shader_parameter/vignette_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uck36"]
-shader = ExtResource("5_k0wwq")
-shader_parameter/brightnessMult = 3.5000000521542
-shader_parameter/wiggleMult = 0.0009999999747
-shader_parameter/chromaticAberrationOffset = 0.000999999975
+[ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="4_dxroe"]
 
 [node name="MainMenu" type="Control" unique_id=1606845327 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "exit_button")]
 layout_mode = 3
@@ -75,44 +62,4 @@ layout_mode = 2
 stretch_mode = 0
 label_text = "Exit"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=431572088]
-material = SubResource("ShaderMaterial_hut5v")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -34.0
-offset_right = 25.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorGrading" type="ColorRect" parent="." unique_id=1230307026]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -34.0
-offset_right = 25.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 0.13333334, 0.06666667)
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1115931121]
-material = SubResource("ShaderMaterial_uck36")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -36.0
-offset_top = -32.0
-offset_right = 23.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("4_dxroe")]

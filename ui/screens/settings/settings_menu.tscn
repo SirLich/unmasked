@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpc8m8xk7kyxg" path="res://prototype_assets/main_menu_hero.png" id="2_wb1qp"]
 [ext_resource type="PackedScene" uid="uid://bum01orwklqho" path="res://ui/elements/buttons/small_button.tscn" id="3_no57w"]
 [ext_resource type="PackedScene" uid="uid://b6oh2c1ue63aa" path="res://ui/elements/volume_slider/volume_slider.tscn" id="4_wb1qp"]
+[ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="5_xkhai"]
 
 [node name="SettingsMenu" type="Control" unique_id=1378592612 node_paths=PackedStringArray("back_button")]
 layout_mode = 3
@@ -66,3 +67,5 @@ label_text = "Music"
 layout_mode = 2
 bus_name = "Sounds"
 label_text = "SFX"
+
+[node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("5_xkhai")]

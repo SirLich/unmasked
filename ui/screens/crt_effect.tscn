@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dfxsxqk2vsxt7"]
+
+[ext_resource type="Shader" uid="uid://nxmj24157gfm" path="res://scenes/game/vignette.gdshader" id="1_jkv6c"]
+[ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="2_ydoq4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hut5v"]
+shader = ExtResource("1_jkv6c")
+shader_parameter/outerRadius = 1.0000000475
+shader_parameter/MainAlpha = 0.5910000280725
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uck36"]
+shader = ExtResource("2_ydoq4")
+shader_parameter/brightnessMult = 3.5000000521542
+shader_parameter/wiggleMult = 0.0009999999747
+shader_parameter/chromaticAberrationOffset = 0.000999999975
+
+[node name="CrtEffect" type="CanvasLayer" unique_id=1305855474]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1365024556]
+material = SubResource("ShaderMaterial_hut5v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorGrading" type="ColorRect" parent="." unique_id=1673542174]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 0.13333334, 0.06666667)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=92768855]
+material = SubResource("ShaderMaterial_uck36")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -32.0
+offset_right = 23.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
