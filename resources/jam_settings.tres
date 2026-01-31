@@ -33,5 +33,4 @@ credits_scene = ExtResource("1_xtdjy")
 settings_scene = ExtResource("5_ycxi4")
 game_scene = ExtResource("4_0f7l2")
 pause_scene = ExtResource("6_donah")
-skip_audio = true
 metadata/_custom_type_script = "uid://oxut513d2dhw"

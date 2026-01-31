@@ -115,6 +115,8 @@ func died():
 	await Utils.wait(3)
 	player_sprite.play("move_down")
 	health_component.heal_full()
+	Utils.get_first_of_type(VoiceOverManager).play_music()
+
 	can_move = true
 	
 	global_position += Vector2(0, -500)
@@ -131,7 +133,6 @@ func do_dash():
 	dash_time = dash_dur
 	
 func do_attack():
-	print('DO ATTACK')
 	SoundManager.play_sound(player_attack_sound)
 	is_currently_attacking = true
 	attack_shape.process_mode = Node.PROCESS_MODE_ALWAYS

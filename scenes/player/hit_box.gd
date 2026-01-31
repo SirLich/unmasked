@@ -30,7 +30,6 @@ func on_took_damage(area: Area2D) -> void:
 	health_component.take_damage(damage)
 	
 	if take_knockback and not health_component.invulnerable:
-		print("taking knockback")
 		var parent = get_parent() as Node2D
 		var dir = area.global_position.direction_to(parent.global_position)
 		var knockback_power = knockback
