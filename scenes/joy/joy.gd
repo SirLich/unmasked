@@ -11,9 +11,9 @@ class_name Joy
 @export var num_small_jumps_max = 6
 @export var idle_time_min = 1
 @export var idle_time_max = 1
-@export var num_spikes_min = 10
-@export var num_spikes_max = 15
-@export var num_time_between_spikes = 0.1
+@export var num_spikes_min = 30
+@export var num_spikes_max = 40
+@export var num_time_between_spikes = 0.01
 
 @export_group("Audio")
 @export var intro_audio : AudioStream

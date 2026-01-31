@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b61vnpn516s73" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://c53ieyaxishfg" path="res://scenes/pause_handler/pause_handler.tscn" id="2_7h61r"]
+[ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="Script" uid="uid://d31r6k6vtoini" path="res://src/player_camera.gd" id="5_5i0tg"]
 [ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="6_5i0tg"]
@@ -9,6 +10,11 @@
 
 [node name="Game" type="Node2D" unique_id=1234032883]
 script = ExtResource("1_sul5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=366164865]
+position = Vector2(1141, 608.00006)
+scale = Vector2(1.9067129, 1.9067129)
+texture = ExtResource("2_bdhmt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1200371875]
 position = Vector2(833, 637)
