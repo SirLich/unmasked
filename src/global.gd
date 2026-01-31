@@ -4,7 +4,14 @@ var settings : JamSettings = load("res://resources/jam_settings.tres")
 
 signal enemy_died
 signal enemy_took_damage(new_health_percent)
-signal fight_started(name : String)
+signal fight_started(enemy : EnemyType)
+
+enum EnemyType {
+	JOY,
+	ANGER,
+	SADNESS,
+	APATHY
+}
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("kill"):
