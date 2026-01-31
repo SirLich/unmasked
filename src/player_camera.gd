@@ -17,6 +17,11 @@ var original_offset: Vector2
 func _ready():
 	original_offset = offset
 
+func _physics_process(delta: float) -> void:
+	var pos = Utils.get_player().global_position
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", pos, 0.2)
+	
 func _process(delta: float) -> void:
 	if shake_time > 0.0:
 		shake_time -= delta

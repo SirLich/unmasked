@@ -7,8 +7,7 @@ class_name Joy
 @export var small_jump_distance = 200
 @export var small_jump_delay = 0.5
 @export var big_jump_delay = 0.5
-@export var animation_player: AnimationPlayer
-@export var num_small_jump_min = 2
+@export var num_small_jump_min = 4
 @export var num_small_jumps_max = 6
 @export var idle_time_min = 4
 @export var idle_time_max = 8
@@ -16,12 +15,26 @@ class_name Joy
 @export var num_spikes_max = 15
 @export var num_time_between_spikes = 0.1
 
+@export_group("Audio")
+@export var intro_audio : AudioStream
+
 @export_group("Components")
 @export var jump_projectile: ProjectileComponent
-@export var big_jump_timer: Timer
+@export var health_component: HealthComponent
+@export var animation_player: AnimationPlayer
+@export var attack_animations: AnimationPlayer
 
 func _ready() -> void:
-	await Utils.wait(0.1)
+	do_intro()
+	
+func do_intro():
+	health_component.invulnerable =  true
+	animation_player.play("idle")
+	await Utils.wait(0.75)
+	SoundManager.play_sound(intro_audio)
+	await Utils.wait(intro_audio.get_length())
+	health_component.invulnerable = false
+
 	do_small_jumps()
 
 func do_idle():
@@ -44,6 +57,9 @@ func do_idle():
 func do_small_jumps():
 	await get_tree().process_frame
 	print("do_small_jumps")
+	
+	animation_player.play("big_jump_prep", 0.2, 2.0)
+	await animation_player.animation_finished
 	for i in range(randi_range(num_small_jump_min, num_small_jumps_max)):
 		await do_small_jump()
 	if randf() > 0.3:
@@ -57,14 +73,11 @@ func do_small_jump():
 	jump_projectile.configure(pos)
 	jump_projectile.fire()
 	await jump_projectile.on_hit_ground
-	animation_player.play("small_jump_attack")
-	#await animation_player.animation_finished
+	#attack_animations.play("small_jump_attack")
 	animation_player.play("big_jump_prep", 0.2, 2.0)
 	await animation_player.animation_finished
-	print("anim finished!")
 	animation_player.play("big_jump_prep", 0.2, -2.0, true)
 	await animation_player.animation_finished
-	print("anim finished!")
 
 
 func do_big_jump():

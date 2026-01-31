@@ -8,16 +8,19 @@ class_name HealthComponent
 ## How long the player is invincible, in seconds
 @export var invincibility_time = 0.5
 var i_frames = 0
+var invulnerable = false
 
 func is_invincible():
-	return i_frames > 0
+	return i_frames > 0 or invulnerable
 	
 func _physics_process(delta: float) -> void:
-	
 	if is_invincible():
 		i_frames -= delta
 
 func take_damage(damage : float) -> void:
+	if is_invincible():
+		return
+		
 	health -= damage
 	i_frames = invincibility_time
 	
