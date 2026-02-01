@@ -30,11 +30,15 @@ func _ready() -> void:
 func on_mouse_exited():
 	if hover_end_sound:
 		SoundManager.play_ui_sound(hover_end_sound)
+	if label:
+		modulate = Color(1, 1, 1)
 		
 func on_mouse_entered():
 	if hover_end_sound:
 		SoundManager.play_ui_sound(hover_end_sound)
-		
+	if label:
+		modulate = Color(1.3, 1.3, 1.3)
+				
 func on_pressed():
 	if click_sound:
 		SoundManager.play_ui_sound(click_sound)

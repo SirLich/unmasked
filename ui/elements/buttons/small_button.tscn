@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://bum01orwklqho"]
 
-[ext_resource type="Texture2D" uid="uid://cnb0kvquoj1n3" path="res://prototype_assets/small_button_texture.png" id="1_sgqqm"]
-[ext_resource type="Texture2D" uid="uid://b3hbl0i7j826e" path="res://prototype_assets/small_button_texture_hovered.png" id="2_6fyjy"]
 [ext_resource type="Script" uid="uid://dpucmjhjyy7vg" path="res://ui/elements/buttons/main_menu_button.gd" id="3_ef8bk"]
 [ext_resource type="LabelSettings" uid="uid://dr5n6aixf165u" path="res://ui/elements/buttons/main_menu_label_settings.tres" id="4_73ojv"]
 [ext_resource type="AudioStream" uid="uid://drm1gt38qw046" path="res://prototype_assets/switch_on_042.wav" id="6_6fyjy"]
@@ -9,8 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://0vfi8xuygl1e" path="res://prototype_assets/light_switch_019.wav" id="7_of8py"]
 
 [node name="SmallButton" type="TextureButton" unique_id=2026460345 node_paths=PackedStringArray("label")]
-texture_normal = ExtResource("1_sgqqm")
-texture_hover = ExtResource("2_6fyjy")
+custom_minimum_size = Vector2(300, 120)
 stretch_mode = 5
 script = ExtResource("3_ef8bk")
 label_text = "Wowser!"

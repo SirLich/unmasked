@@ -1,14 +1,19 @@
-# Contributors
- - SirLich: Programming, Art, Music, Sound, Snacks
+# **Programming and Game Design**
+Liam Koehler
+(@SirLich)
 
-# Tools
- - Godot
+# **Art and Animation**
+Flores Amersdorffer
+(@neon_flores)
 
-# Special Thanks
- - Yes
+# **Writing, Voice Acting, Music**
+Alec Shea
+(@alecsheamusic)
 
-# More Headers
- - More Text
+# **Sound Design, Music**
+Philipp Kapusta
+(@Philipp | PhilsHarmony) 
 
-# Longer headers
- - Longer Text
+# **Some other Programming**
+Jonas Dürrschmied
+ (@jodeka)

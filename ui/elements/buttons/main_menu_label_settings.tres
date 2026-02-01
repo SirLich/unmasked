@@ -1,4 +1,8 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://dr5n6aixf165u"]
 
+[ext_resource type="FontFile" uid="uid://b7ppi24y3ctlq" path="res://prototype_assets/fonts/CircusiaRegular.ttf" id="1_oejis"]
+
 [resource]
-font_size = 45
+font = ExtResource("1_oejis")
+font_size = 120
+font_color = Color(0.97168, 0.50087696, 0.2436066, 1)

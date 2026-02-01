@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dghbxfs8oi5il" path="res://addons/level.png" id="2_bdhmt"]
 [ext_resource type="Script" uid="uid://bai8dhoi53k3y" path="res://scenes/game/voice_over_manager.gd" id="2_vaxfo"]
 [ext_resource type="AudioStream" uid="uid://6va7t6ygiqyj" path="res://assets/Audio/VO/Unmasked-VO-Joy-2.wav" id="3_8b66f"]
-[ext_resource type="Script" uid="uid://banhgcqi3yco7" path="res://scenes/game/random_timer.gd" id="3_ftsea"]
+[ext_resource type="Script" path="res://scenes/game/random_timer.gd" id="3_ftsea"]
 [ext_resource type="AudioStream" uid="uid://co5qauq3028bx" path="res://assets/Audio/VO/Unmasked-VO-Joy-3.wav" id="4_3jaai"]
 [ext_resource type="PackedScene" uid="uid://didfq6gpf4q61" path="res://scenes/player/player.tscn" id="4_kelw5"]
 [ext_resource type="AudioStream" uid="uid://b7qramg31811o" path="res://assets/Audio/VO/Unmasked-VO-Joy-4.wav" id="5_1iff4"]
@@ -42,7 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://cr5jn07xuktqh" path="res://assets/Audio/Music/Unmasked-Music-Apathy.wav" id="27_t5owt"]
 [ext_resource type="Texture2D" uid="uid://dkgunr16kv0og" path="res://assets/Lightbulb-2.png" id="32_6ehwc"]
 [ext_resource type="Texture2D" uid="uid://bcor2yh8iytg3" path="res://assets/Lightbulb-1.png" id="32_tyhjx"]
-[ext_resource type="PackedScene" uid="uid://dnhxa81l3wja8" path="res://scenes/game/health_pip.tscn" id="35_0gkf7"]
+[ext_resource type="PackedScene" path="res://scenes/game/health_pip.tscn" id="35_0gkf7"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
 length = 0.001
@@ -206,7 +206,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 5.01617441115705
+wait_time = 3.5942291050808195
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
@@ -320,6 +320,7 @@ offset_right = 25.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorGrading" type="ColorRect" parent="CanvasLayer" unique_id=1727519171]
 anchors_preset = 15
@@ -331,6 +332,7 @@ offset_right = 25.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 0.13333334, 0.06666667)
 
 [node name="Death" type="ColorRect" parent="CanvasLayer" unique_id=987531377]
@@ -343,6 +345,7 @@ offset_right = 25.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
@@ -356,6 +359,7 @@ offset_right = 23.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=479565801]
 repeat_size = Vector2(500, 500)
