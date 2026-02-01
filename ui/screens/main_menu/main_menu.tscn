@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bgsma7db6pfgo" path="res://ui/screens/main_menu/main_menu.gd" id="1_aiivd"]
 [ext_resource type="Texture2D" uid="uid://dpc0bcgdlg0lx" path="res://assets/curtain_2.png" id="2_dxroe"]
 [ext_resource type="PackedScene" uid="uid://bmgv2ax1c7oav" path="res://ui/elements/buttons/large_button.tscn" id="2_qoncc"]
-[ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="4_dxroe"]
+[ext_resource type="PackedScene" path="res://ui/screens/crt_effect.tscn" id="4_dxroe"]
 
 [node name="MainMenu" type="Control" unique_id=1606845327 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "exit_button")]
 layout_mode = 3
@@ -41,7 +41,7 @@ offset_right = 250.0
 offset_bottom = 437.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = -72
+theme_override_constants/separation = 11
 alignment = 1
 
 [node name="PlayButton" parent="VBoxContainer" unique_id=616884618 instance=ExtResource("2_qoncc")]
