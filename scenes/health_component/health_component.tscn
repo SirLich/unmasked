@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c7t884v5eoyj2"]
 
 [ext_resource type="Script" uid="uid://dr55b6akuxys4" path="res://scenes/health_component/health_component.gd" id="1_hhor4"]
+[ext_resource type="AudioStream" uid="uid://cpu88brog6d53" path="res://scenes/health_component/boss_hit_sound.tres" id="2_pb6ul"]
 
 [node name="HealthComponent" type="Node2D" unique_id=870133478]
 script = ExtResource("1_hhor4")
+enemy_hit_sound = ExtResource("2_pb6ul")

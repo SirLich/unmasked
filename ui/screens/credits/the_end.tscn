@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://dvy356njcohbu"]
 
 [ext_resource type="Texture2D" uid="uid://b2cb7ot1hrbw" path="res://assets/EndScreen/EndScene-1.png" id="1_2yq01"]
+[ext_resource type="Script" uid="uid://px2vs2fnpktl" path="res://ui/screens/credits/the_end.gd" id="1_sdblp"]
+[ext_resource type="AudioStream" uid="uid://bapirtwl6xxpt" path="res://assets/Audio/VFX/sfx_rope_rip.ogg" id="2_id6hm"]
 [ext_resource type="Texture2D" uid="uid://dc43o5xrkgt0i" path="res://assets/EndScreen/EndScene-2.png" id="2_sdblp"]
+[ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="3_id6hm"]
+[ext_resource type="AudioStream" uid="uid://7hppkelwptpu" path="res://assets/Audio/VFX/sfx_rope_wobbling.wav" id="3_vuf6o"]
 [ext_resource type="Texture2D" uid="uid://o2fdu1qy4rdr" path="res://assets/EndScreen/EndScene-3.png" id="3_xpipt"]
 [ext_resource type="Texture2D" uid="uid://c6q3enmxp3eqa" path="res://assets/EndScreen/EndScene-4.png" id="4_xwtmp"]
 [ext_resource type="Texture2D" uid="uid://cvl4s77kj7vrx" path="res://assets/EndScreen/EndScene-5.png" id="5_rwhsb"]
@@ -39,6 +43,15 @@
 [ext_resource type="Texture2D" uid="uid://cd8jpkk885f72" path="res://assets/EndScreen/EndScene-37.png" id="37_1kf7k"]
 [ext_resource type="Texture2D" uid="uid://b0wiavh5pbfub" path="res://assets/EndScreen/EndScene-38.png" id="38_t4hjm"]
 [ext_resource type="Texture2D" uid="uid://da7gnadmaccv8" path="res://assets/EndScreen/EndScene-39.png" id="39_e0k6o"]
+[ext_resource type="FontFile" uid="uid://b7ppi24y3ctlq" path="res://prototype_assets/fonts/CircusiaRegular.ttf" id="42_0o8b3"]
+[ext_resource type="Texture2D" uid="uid://buoh1lslc0a3j" path="res://assets/curtain_part_right.png" id="42_xwtmp"]
+[ext_resource type="Script" uid="uid://dbap0gqox0ty1" path="res://addons/markdownlabel/markdownlabel.gd" id="43_hu7ng"]
+[ext_resource type="Script" uid="uid://dcx7crs23nf4" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="44_id6hm"]
+[ext_resource type="Script" uid="uid://d0sin64i4v3op" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="45_vuf6o"]
+[ext_resource type="Script" uid="uid://dlok0dv1tq2bf" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="46_n4m1y"]
+[ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="47_mwoci"]
+[ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="48_1i27k"]
+[ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="49_ayqba"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ooxe"]
 animations = [{
@@ -69,7 +82,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_msex8")
+}],
+"loop": false,
+"name": &"thread part 1",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_xmdxd")
 }, {
@@ -93,7 +111,12 @@ animations = [{
 }, {
 "duration": 12.0,
 "texture": ExtResource("17_1i27k")
+}],
+"loop": false,
+"name": &"thread part 2",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("18_ayqba")
 }, {
@@ -161,14 +184,114 @@ animations = [{
 "texture": ExtResource("39_e0k6o")
 }],
 "loop": false,
-"name": &"thread",
+"name": &"thread part 3",
 "speed": 12.0
 }]
 
-[node name="TheEnd" type="Node2D" unique_id=345248649]
+[sub_resource type="LabelSettings" id="LabelSettings_0o8b3"]
+font = ExtResource("42_0o8b3")
+font_size = 312
+font_color = Color(0.8352941, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="Resource" id="Resource_x0fgq"]
+resource_local_to_scene = true
+script = ExtResource("44_id6hm")
+override_font_color = true
+font_color = Color(0.8352941, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="Resource" id="Resource_xu0nl"]
+resource_local_to_scene = true
+script = ExtResource("45_vuf6o")
+
+[sub_resource type="Resource" id="Resource_87nee"]
+resource_local_to_scene = true
+script = ExtResource("46_n4m1y")
+
+[sub_resource type="Resource" id="Resource_3d2xo"]
+resource_local_to_scene = true
+script = ExtResource("47_mwoci")
+
+[sub_resource type="Resource" id="Resource_rjb7h"]
+resource_local_to_scene = true
+script = ExtResource("48_1i27k")
+
+[sub_resource type="Resource" id="Resource_yhaw1"]
+resource_local_to_scene = true
+script = ExtResource("49_ayqba")
+
+[node name="TheEnd" type="Control" unique_id=2013549384 node_paths=PackedStringArray("intro_animation", "credits_text", "end_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sdblp")
+credits_file = "res://credits.md"
+intro_animation = NodePath("ThreadAnimation")
+rope_rip_sound = ExtResource("2_id6hm")
+rope_wobble_sound = ExtResource("3_vuf6o")
+credits_text = NodePath("MarginContainer/CreditsText")
+end_text = NodePath("MarginContainer/end text")
+
+[node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("3_id6hm")]
 
 [node name="ThreadAnimation" type="AnimatedSprite2D" parent="." unique_id=1550659532]
+position = Vector2(965.99994, 544)
+scale = Vector2(1.1630137, 0.8885748)
 sprite_frames = SubResource("SpriteFrames_8ooxe")
-animation = &"thread"
-frame = 38
-frame_progress = 1.0
+animation = &"thread part 2"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1836863326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 414
+theme_override_constants/margin_right = 414
+theme_override_constants/margin_bottom = 0
+
+[node name="end text" type="Label" parent="MarginContainer" unique_id=1672840805]
+layout_mode = 2
+text = "the end"
+label_settings = SubResource("LabelSettings_0o8b3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="MarginContainer" unique_id=1746471990]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/bold_font = ExtResource("42_0o8b3")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+horizontal_alignment = 1
+script = ExtResource("43_hu7ng")
+h1 = SubResource("Resource_x0fgq")
+h2 = SubResource("Resource_xu0nl")
+h3 = SubResource("Resource_87nee")
+h4 = SubResource("Resource_3d2xo")
+h5 = SubResource("Resource_rjb7h")
+h6 = SubResource("Resource_yhaw1")
+metadata/_custom_type_script = "uid://dbap0gqox0ty1"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1635146155]
+layout_mode = 0
+offset_left = 1736.0
+offset_right = 2706.0
+offset_bottom = 1080.0
+texture = ExtResource("42_xwtmp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1223235472]
+layout_mode = 0
+offset_left = -733.0
+offset_top = 2.0
+offset_right = 237.0
+offset_bottom = 1082.0
+texture = ExtResource("42_xwtmp")
+flip_h = true

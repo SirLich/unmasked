@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cpu88brog6d53"]
+
+[ext_resource type="AudioStream" uid="uid://dqc6md128osb2" path="res://assets/Audio/VFX/sfx_boss_GettingHit_01.ogg" id="1_j7kas"]
+[ext_resource type="AudioStream" uid="uid://ca3ec1lymujcq" path="res://assets/Audio/VFX/sfx_boss_GettingHit_02.ogg" id="2_ev8rt"]
+[ext_resource type="AudioStream" uid="uid://bfmy06b43ljdx" path="res://assets/Audio/VFX/sfx_boss_GettingHit_03.ogg" id="3_jx152"]
+[ext_resource type="AudioStream" uid="uid://d14anbyifch2m" path="res://assets/Audio/VFX/sfx_boss_GettingHit_04.ogg" id="4_bam2w"]
+[ext_resource type="AudioStream" uid="uid://bulvodthlxm5i" path="res://assets/Audio/VFX/sfx_boss_GettingHit_05.ogg" id="5_0oosu"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_j7kas")
+stream_1/stream = ExtResource("2_ev8rt")
+stream_2/stream = ExtResource("3_jx152")
+stream_3/stream = ExtResource("4_bam2w")
+stream_4/stream = ExtResource("5_0oosu")
