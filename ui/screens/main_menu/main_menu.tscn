@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bon0p0k4pwl7p"]
 
 [ext_resource type="Script" uid="uid://bgsma7db6pfgo" path="res://ui/screens/main_menu/main_menu.gd" id="1_aiivd"]
-[ext_resource type="Texture2D" uid="uid://c483awpjdxqx1" path="res://assets/curtain.png" id="2_aiivd"]
+[ext_resource type="Texture2D" uid="uid://dpc0bcgdlg0lx" path="res://assets/curtain_2.png" id="2_dxroe"]
 [ext_resource type="PackedScene" uid="uid://bmgv2ax1c7oav" path="res://ui/elements/buttons/large_button.tscn" id="2_qoncc"]
 [ext_resource type="PackedScene" path="res://ui/screens/crt_effect.tscn" id="4_dxroe"]
 
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_aiivd")
+texture = ExtResource("2_dxroe")
 stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=102646319]

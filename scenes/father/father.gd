@@ -9,4 +9,4 @@ func _ready() -> void:
 	
 	await Utils.wait(1.0)
 	
-	SceneManager.change_to_packed_with_carpet_transition(final_scene)
+	SceneManager.change_to_packed_with_default_transition(final_scene)

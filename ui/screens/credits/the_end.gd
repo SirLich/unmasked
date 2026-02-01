@@ -65,7 +65,7 @@ func _ready():
 		.set_ease(Tween.EASE_OUT)
 		
 func mainmenu_button_pressed():
-	SceneManager.change_to_packed_with_carpet_transition(Global.settings.main_menu_scene)
+	SceneManager.change_to_packed_with_transition(Global.settings.main_menu_scene, Global.settings.reverse_carpet_transition)
 	
 	
 	

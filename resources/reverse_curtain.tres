@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ReverseCurtainTransition" format=3 uid="uid://tc03krtvrrit"]
+
+[ext_resource type="PackedScene" uid="uid://buti0yxi0mrh3" path="res://scenes/transitions/reverse_curtain_transition/reverse_curtain_transititon.tscn" id="1_rdcn5"]
+[ext_resource type="Script" uid="uid://oiaa1o13evg5" path="res://scenes/transitions/reverse_curtain_transition/reverse_curtain_transititon.gd" id="2_rdcn5"]
+
+[resource]
+script = ExtResource("2_rdcn5")
+fade_scene = ExtResource("1_rdcn5")
+metadata/_custom_type_script = "uid://d3pr4sbgjj0l5"
