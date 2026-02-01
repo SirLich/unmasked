@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bapirtwl6xxpt" path="res://assets/Audio/VFX/sfx_rope_rip.ogg" id="2_id6hm"]
 [ext_resource type="Texture2D" uid="uid://dc43o5xrkgt0i" path="res://assets/EndScreen/EndScene-2.png" id="2_sdblp"]
 [ext_resource type="PackedScene" uid="uid://dfxsxqk2vsxt7" path="res://ui/screens/crt_effect.tscn" id="3_id6hm"]
+[ext_resource type="AudioStream" uid="uid://7hppkelwptpu" path="res://assets/Audio/VFX/sfx_rope_wobbling.wav" id="3_vuf6o"]
 [ext_resource type="Texture2D" uid="uid://o2fdu1qy4rdr" path="res://assets/EndScreen/EndScene-3.png" id="3_xpipt"]
 [ext_resource type="Texture2D" uid="uid://c6q3enmxp3eqa" path="res://assets/EndScreen/EndScene-4.png" id="4_xwtmp"]
 [ext_resource type="Texture2D" uid="uid://cvl4s77kj7vrx" path="res://assets/EndScreen/EndScene-5.png" id="5_rwhsb"]
@@ -81,7 +82,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_msex8")
+}],
+"loop": false,
+"name": &"thread part 1",
+"speed": 12.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_xmdxd")
 }, {
@@ -107,7 +113,7 @@ animations = [{
 "texture": ExtResource("17_1i27k")
 }],
 "loop": false,
-"name": &"thread part 1",
+"name": &"thread part 2",
 "speed": 12.0
 }, {
 "frames": [{
@@ -178,9 +184,14 @@ animations = [{
 "texture": ExtResource("39_e0k6o")
 }],
 "loop": false,
-"name": &"thread part 2",
+"name": &"thread part 3",
 "speed": 12.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0o8b3"]
+font = ExtResource("42_0o8b3")
+font_size = 312
+font_color = Color(0.8352941, 0.38431373, 0.101960786, 1)
 
 [sub_resource type="Resource" id="Resource_x0fgq"]
 resource_local_to_scene = true
@@ -208,11 +219,6 @@ script = ExtResource("48_1i27k")
 resource_local_to_scene = true
 script = ExtResource("49_ayqba")
 
-[sub_resource type="LabelSettings" id="LabelSettings_0o8b3"]
-font = ExtResource("42_0o8b3")
-font_size = 312
-font_color = Color(0.8352941, 0.38431373, 0.101960786, 1)
-
 [node name="TheEnd" type="Control" unique_id=2013549384 node_paths=PackedStringArray("intro_animation", "credits_text", "end_text")]
 layout_mode = 3
 anchors_preset = 15
@@ -223,8 +229,9 @@ grow_vertical = 2
 script = ExtResource("1_sdblp")
 credits_file = "res://credits.md"
 intro_animation = NodePath("ThreadAnimation")
-thread_rip_sound = ExtResource("2_id6hm")
-credits_text = NodePath("MarginContainer/ScrollContainer/CreditsText")
+rope_rip_sound = ExtResource("2_id6hm")
+rope_wobble_sound = ExtResource("3_vuf6o")
+credits_text = NodePath("MarginContainer/CreditsText")
 end_text = NodePath("MarginContainer/end text")
 
 [node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("3_id6hm")]
@@ -242,13 +249,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_right = 300
+theme_override_constants/margin_left = 414
+theme_override_constants/margin_right = 414
+theme_override_constants/margin_bottom = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=468772109]
+[node name="end text" type="Label" parent="MarginContainer" unique_id=1672840805]
 layout_mode = 2
+text = "the end"
+label_settings = SubResource("LabelSettings_0o8b3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CreditsText" type="RichTextLabel" parent="MarginContainer/ScrollContainer" unique_id=1746471990]
+[node name="CreditsText" type="RichTextLabel" parent="MarginContainer" unique_id=1746471990]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -257,6 +269,7 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 scroll_active = false
 scroll_following = true
+horizontal_alignment = 1
 script = ExtResource("43_hu7ng")
 h1 = SubResource("Resource_x0fgq")
 h2 = SubResource("Resource_xu0nl")
@@ -266,13 +279,6 @@ h5 = SubResource("Resource_rjb7h")
 h6 = SubResource("Resource_yhaw1")
 metadata/_custom_type_script = "uid://dbap0gqox0ty1"
 metadata/_edit_use_anchors_ = true
-
-[node name="end text" type="Label" parent="MarginContainer" unique_id=1672840805]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-text = "the end"
-label_settings = SubResource("LabelSettings_0o8b3")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1635146155]
 layout_mode = 0
