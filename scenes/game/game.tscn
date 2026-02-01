@@ -207,7 +207,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 5.401869424441417
+wait_time = 3.727964367629906
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
