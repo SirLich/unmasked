@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		i_frames -= delta
 
 func heal(num):
+	print("HEALED!")
 	health = min(max_health, health+num)
 	Global.enemy_took_damage.emit(health/max_health)
 

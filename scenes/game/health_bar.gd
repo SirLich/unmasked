@@ -5,6 +5,7 @@ func _ready() -> void:
 	Global.fight_started.connect(fight_started)
 	
 func enemy_damage(new_percent):
+	print("ENEM DAM")
 	value = new_percent
 
 func fight_started(f):

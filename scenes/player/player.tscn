@@ -871,4 +871,4 @@ visible = false
 position = Vector2(0, -550)
 sprite_frames = SubResource("SpriteFrames_5ecds")
 autoplay = "default"
-frame_progress = 0.983739
+frame_progress = 0.35601202

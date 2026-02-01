@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnnbqjaco5jpr" path="res://scenes/sadness/sadness.gd" id="1_bgcxr"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="2_onmyj"]
 [ext_resource type="AudioStream" uid="uid://cra6p4h18kqqo" path="res://assets/Audio/VO/Unmasked-VO-Sad-to-Apathy.wav" id="2_p3ksq"]
+[ext_resource type="PackedScene" uid="uid://d3sm8fjjr2gvp" path="res://scenes/tear_projectile/tear.tscn" id="3_oj5vh"]
 [ext_resource type="Texture2D" uid="uid://bwrpedeguhebr" path="res://assets/Sadness/Sadness_Body-1.png" id="3_onmyj"]
 [ext_resource type="Texture2D" uid="uid://cswdpiiiudcgf" path="res://assets/Sadness/Sadness_Body-2.png" id="4_p3ksq"]
 [ext_resource type="PackedScene" uid="uid://68yn5m1pap7v" path="res://scenes/apathy/apathy.tscn" id="4_vb5ew"]
@@ -461,10 +462,11 @@ transition_audio = ExtResource("2_p3ksq")
 death_animation = NodePath("DeathAnimation")
 puddle_attack_animation = NodePath("PuddleAttackAnimation")
 heal_timer = NodePath("HealTimer")
+tear_scene = ExtResource("3_oj5vh")
 next_enemy = ExtResource("4_vb5ew")
 
 [node name="HealTimer" type="Timer" parent="." unique_id=1238875914]
-wait_time = 0.5
+wait_time = 0.4
 autostart = true
 
 [node name="HurtAnimation" type="AnimationPlayer" parent="." unique_id=582651119]
@@ -512,8 +514,11 @@ sprite_frames = SubResource("SpriteFrames_vb5ew")
 
 [node name="EnemyAttack" parent="." unique_id=1621430019 instance=ExtResource("28_613l8")]
 process_mode = 4
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttack" unique_id=1294353047]
 position = Vector2(0, 43)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_613l8")
+
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

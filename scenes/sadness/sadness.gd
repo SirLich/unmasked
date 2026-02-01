@@ -6,8 +6,10 @@ extends Node2D
 @export var death_animation: AnimationPlayer
 @export var puddle_attack_animation: AnimationPlayer
 @export var heal_timer: Timer
-
+@export var tear_scene : PackedScene
 @export var next_enemy : PackedScene
+@export var num_raindrops = 40
+@export var break_size = 4
 
 var is_dead = false
 
@@ -15,7 +17,6 @@ func _ready() -> void:
 	await do_intro()
 	health_component.died.connect(on_died)
 	health_component.hurt.connect(on_hurt)
-	heal_timer.timeout.connect(on_heal)
 	await Utils.wait(2.9)
 
 func on_heal():
@@ -33,16 +34,25 @@ func do_puddle_attack():
 	if is_dead:
 		return
 		
-	var is_healing = true
+	is_healing = true
 	puddle_attack_animation.play("attack")
 	await puddle_attack_animation.animation_finished
 	is_healing = false
 	
-	await Utils.wait(1.0)
-	await do_puddle_attack()
+	await Utils.wait(2.0)
+	await do_cry_attack()
 
 func do_cry_attack():
-	pass
+	var pos_offscreen_left = Utils.get_player().global_position + Vector2(-1920/2, -1080/2)
+	for i in range(num_raindrops):
+		var pos = pos_offscreen_left + Vector2(1920/num_raindrops * i, 0)
+		var new_raindrop = tear_scene.instantiate()
+		add_sibling(new_raindrop)
+		new_raindrop.global_position = pos
+	
+	await Utils.wait(4)
+	await do_cry_attack()
+	
 	
 func on_hurt():
 	hurt_animation.play("hurt")
@@ -59,3 +69,10 @@ func on_died():
 	add_sibling(new_enemy)
 	self.queue_free()
 	
+
+
+func _on_heal_timer_timeout() -> void:
+	print("Healing?")
+	if is_healing:
+		print("healed")
+		health_component.heal(1)
