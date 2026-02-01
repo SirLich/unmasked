@@ -176,8 +176,8 @@ font_size = 62
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
 shader = ExtResource("10_4j704")
-shader_parameter/outerRadius = 1.0000000475
-shader_parameter/MainAlpha = 0.638000030305
+shader_parameter/outerRadius = 1.47200006992
+shader_parameter/MainAlpha = 0.2830000134425
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jirj"]
@@ -310,7 +310,7 @@ offset_right = 2939.0054
 offset_bottom = 1174.0
 texture = ExtResource("7_5jirj")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=412873559]
+[node name="Vigneete" type="ColorRect" parent="CanvasLayer" unique_id=412873559]
 material = SubResource("ShaderMaterial_4j704")
 anchors_preset = 15
 anchor_right = 1.0
@@ -356,7 +356,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
+[node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=1535658206]
+z_index = 200
 material = SubResource("ShaderMaterial_5jirj")
 anchors_preset = 15
 anchor_right = 1.0

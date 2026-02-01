@@ -206,7 +206,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 3.4612340139918074
+wait_time = 4.877552353632531
 autostart = true
 script = ExtResource("28_pl1qu")
 min_time = 3.0

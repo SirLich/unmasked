@@ -276,7 +276,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_goxci"]
 resource_name = "attack"
-length = 4.5
+length = 6.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -284,10 +284,10 @@ tracks/0/path = NodePath("Visuals/Body:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8333333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.033333335, 0.8333333, 4.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [&"default", &"puddle"]
+"values": [&"default", &"puddle", &"default"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -296,10 +296,10 @@ tracks/1/path = NodePath("Visuals/Mask:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.86666673),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.86666673, 4.166667, 5.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(9.917355, -274.38016), Vector2(9.917355, -76.033066)]
+"values": [Vector2(9.917355, -274.38016), Vector2(9.917355, -76.033066), Vector2(9.917355, -76.033066), Vector2(9.917355, -274.38016)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -320,10 +320,10 @@ tracks/3/path = NodePath("EnemyAttack:process_mode")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.4333334, 4.3333335),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2.4333334, 4.3333335, 4.5666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 3, 4]
+"values": [4, 3, 4, 4]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -354,6 +354,42 @@ tracks/5/keys = {
 _data = {
 &"RESET": SubResource("Animation_613l8"),
 &"attack": SubResource("Animation_goxci")
+}
+
+[sub_resource type="Animation" id="Animation_sk10g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Mask:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oj5vh"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Mask:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sk10g"]
+_data = {
+&"RESET": SubResource("Animation_sk10g"),
+&"attack": SubResource("Animation_oj5vh")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfkcg"]
@@ -454,7 +490,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_613l8"]
 
-[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation", "puddle_attack_animation", "heal_timer")]
+[node name="Sadness" type="Node2D" unique_id=1712075422 node_paths=PackedStringArray("health_component", "hurt_animation", "death_animation", "puddle_attack_animation", "heal_timer", "pre_ranged_attack_animation")]
 script = ExtResource("1_bgcxr")
 health_component = NodePath("HealthComponent")
 hurt_animation = NodePath("HurtAnimation")
@@ -464,6 +500,7 @@ puddle_attack_animation = NodePath("PuddleAttackAnimation")
 heal_timer = NodePath("HealTimer")
 tear_scene = ExtResource("3_oj5vh")
 next_enemy = ExtResource("4_vb5ew")
+pre_ranged_attack_animation = NodePath("PreRangedAttackAnimation")
 
 [node name="HealTimer" type="Timer" parent="." unique_id=1238875914]
 wait_time = 0.4
@@ -477,6 +514,9 @@ libraries/ = SubResource("AnimationLibrary_i6isk")
 
 [node name="PuddleAttackAnimation" type="AnimationPlayer" parent="." unique_id=1676227331]
 libraries/ = SubResource("AnimationLibrary_613l8")
+
+[node name="PreRangedAttackAnimation" type="AnimationPlayer" parent="." unique_id=385122992]
+libraries/ = SubResource("AnimationLibrary_sk10g")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("2_onmyj")]
 shadow_size = 96
