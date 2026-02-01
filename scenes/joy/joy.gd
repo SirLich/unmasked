@@ -91,6 +91,7 @@ func do_idle():
 	await clap_animation.animation_finished
 	animation_player.play("idle")
 	var nav = Utils.get_first_of_type(Nav) as Nav
+	
 	for i in range(randi_range(num_spikes_min, num_spikes_max)):
 		var new_spike = spike_prototype.instantiate()
 		new_spike.global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + global_position - Vector2(1920/2,1080/2)

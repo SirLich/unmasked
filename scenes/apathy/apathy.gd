@@ -6,6 +6,8 @@ extends Node2D
 @export var spike_scene : PackedScene
 @export var spike_attack_animation: AnimationPlayer
 @export var hurt_animation: AnimationPlayer
+@export var enemy_hit_box: HitBox
+@export var body: AnimatedSprite2D
 
 var is_dead = false
 
@@ -26,6 +28,7 @@ func do_spike_attack():
 		return
 		
 	await Utils.wait(1.0)
+	enemy_hit_box.process_mode = Node.PROCESS_MODE_DISABLED
 	spike_attack_animation.play("attack")
 	for i in range(20):
 		var new_spike = spike_scene.instantiate()
@@ -34,9 +37,31 @@ func do_spike_attack():
 		await Utils.wait(0.1)
 	
 	await spike_attack_animation.animation_finished
-	await Utils.wait(0.5)
+	enemy_hit_box.process_mode = Node.PROCESS_MODE_ALWAYS
+	await Utils.wait(2.5)
 	
-	do_spike_attack()
+	if randf() > 0.5:
+		do_teleport()
+	else:
+		do_spike_attack()
+func do_teleport():
+	if is_dead:
+		return
+		
+	body.play("teleport")
+	await body.animation_finished
+	
+	var nav = Utils.get_first_of_type(Nav) as Nav
+	global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + global_position - Vector2(1920/2,1080/2)
+	
+	body.play("default")
+	
+	await Utils.wait(1.0)
+	
+	if randf() > 0.2:
+		do_spike_attack()
+	else:
+		do_teleport()
 	
 func on_hurt():
 	hurt_animation.play("hurt")
