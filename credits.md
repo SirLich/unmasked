@@ -10,13 +10,13 @@ Flores Amersdorffer
 Alec Shea
 (@alecsheamusic)
 
-# **Sound Design, Music**
-Philipp Kapusta
-(@Philipp | PhilsHarmony) 
-
 # **Some other Programming**
 Jonas Dürrschmied
  (@jodeka)
+
+# **Sound Design, Music**
+Philipp Kapusta
+(@Philipp | PhilsHarmony) 
 
 
 

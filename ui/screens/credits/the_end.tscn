@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://bayuh2vafablg" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="47_mwoci"]
 [ext_resource type="Script" uid="uid://dfr1w7u3jgni3" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="48_1i27k"]
 [ext_resource type="Script" uid="uid://bsi6dexoofpe6" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="49_ayqba"]
+[ext_resource type="PackedScene" uid="uid://bum01orwklqho" path="res://ui/elements/buttons/small_button.tscn" id="53_n4m1y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ooxe"]
 animations = [{
@@ -219,7 +220,7 @@ script = ExtResource("48_1i27k")
 resource_local_to_scene = true
 script = ExtResource("49_ayqba")
 
-[node name="TheEnd" type="Control" unique_id=2013549384 node_paths=PackedStringArray("intro_animation", "credits_text", "end_text")]
+[node name="TheEnd" type="Control" unique_id=2013549384 node_paths=PackedStringArray("intro_animation", "credits_text", "end_text", "menu_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,6 +234,7 @@ rope_rip_sound = ExtResource("2_id6hm")
 rope_wobble_sound = ExtResource("3_vuf6o")
 credits_text = NodePath("CreditsText")
 end_text = NodePath("MarginContainer2/end text")
+menu_button = NodePath("MainMenuButton")
 
 [node name="CrtEffect" parent="." unique_id=1305855474 instance=ExtResource("3_id6hm")]
 
@@ -301,3 +303,18 @@ offset_right = 237.0
 offset_bottom = 1082.0
 texture = ExtResource("42_xwtmp")
 flip_h = true
+
+[node name="MainMenuButton" parent="." unique_id=2026460345 instance=ExtResource("53_n4m1y")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+label_text = "main menu"

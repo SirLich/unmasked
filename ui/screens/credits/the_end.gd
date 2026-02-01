@@ -9,10 +9,12 @@ extends Node
 
 @export var credits_text : MarkdownLabel
 @export var end_text : Label
+@export var menu_button : TextureButton
 
 func _ready():
 	end_text.modulate.a = 0
 	credits_text.modulate.a = 0
+	menu_button.modulate.a = 0
 	credits_text.display_file(credits_file)
 	
 	intro_animation.play("thread part 1")
@@ -52,6 +54,18 @@ func _ready():
 		credits_text.position.y - 3100,
 		12
 	).set_trans(Tween.TRANS_LINEAR)
+	
+	await move_credits.finished
+	menu_button.pressed.connect(mainmenu_button_pressed)
+	
+	var manu_fade_in := create_tween()
+	manu_fade_in.tween_interval(5)
+	manu_fade_in.tween_property(menu_button, "modulate:a", 1.0, 1.5)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+		
+func mainmenu_button_pressed():
+	SceneManager.change_to_packed_with_carpet_transition(Global.settings.main_menu_scene)
 	
 	
 	
