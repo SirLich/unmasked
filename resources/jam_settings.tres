@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cfkgai1x8vsf4" path="res://ui/screens/credits/credits_menu.tscn" id="1_xtdjy"]
 [ext_resource type="PackedScene" uid="uid://bon0p0k4pwl7p" path="res://ui/screens/main_menu/main_menu.tscn" id="2_r764v"]
 [ext_resource type="Resource" uid="uid://ea27a1sp01an" path="res://resources/default_fade.tres" id="2_ycxi4"]
-[ext_resource type="AudioStream" uid="uid://dst56ae6luv43" path="res://prototype_assets/1978810-Sergey_Gulevich-Retro Electro.mp3" id="3_0i6q5"]
 [ext_resource type="PackedScene" uid="uid://bn0m0putc0cvc" path="res://scenes/game/game.tscn" id="4_0f7l2"]
+[ext_resource type="AudioStream" uid="uid://cvg8gbafjtnml" path="res://assets/Audio/Music/Unmasked-Music-Menu-Loop.wav" id="4_ujjlt"]
 [ext_resource type="PackedScene" uid="uid://vkov8p7w8kjb" path="res://ui/screens/settings/settings_menu.tscn" id="5_ycxi4"]
 [ext_resource type="PackedScene" uid="uid://dubc1qild7qo7" path="res://ui/screens/pause_screen/pause_screen.tscn" id="6_donah"]
 [ext_resource type="Resource" uid="uid://bo638ignsatct" path="res://resources/play_fade.tres" id="8_yt0f1"]
@@ -26,7 +26,7 @@ loop = true
 script = ExtResource("1_akcgr")
 default_scene_transition = ExtResource("2_ycxi4")
 play_scene_transition = ExtResource("8_yt0f1")
-main_menu_music = ExtResource("3_0i6q5")
+main_menu_music = ExtResource("4_ujjlt")
 game_music = SubResource("AudioStreamOggVorbis_ujjlt")
 main_menu_scene = ExtResource("2_r764v")
 credits_scene = ExtResource("1_xtdjy")
