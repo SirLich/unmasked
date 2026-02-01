@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="1_0uvqh"]
 [ext_resource type="PackedScene" uid="uid://bybpnws6p5hwy" path="res://scenes/father/father.tscn" id="2_5spgv"]
 [ext_resource type="Texture2D" uid="uid://equjfbtp56km" path="res://assets/Apathy/Apathy_Body/Apathy_Body-1.png" id="3_0tglv"]
+[ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_2fi32"]
 [ext_resource type="Texture2D" uid="uid://qfjte4yimye0" path="res://assets/Apathy/Apathy_Body/Apathy_Body-2.png" id="4_4cdsl"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="5_5spgv"]
 [ext_resource type="Texture2D" uid="uid://mupq3anvcil5" path="res://assets/Apathy/Apathy_Body/Apathy_Body-3.png" id="5_iaqa0"]
@@ -23,6 +24,43 @@
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="19_cmoth"]
 [ext_resource type="Texture2D" uid="uid://cyaaafb2ghu7h" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-1.png" id="21_iaqa0"]
 [ext_resource type="Texture2D" uid="uid://kj0rlcxj83qv" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-2.png" id="22_5spgv"]
+
+[sub_resource type="Animation" id="Animation_cpab7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2fi32"]
+resource_name = "attack"
+length = 4.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 3.0666666, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -213), Vector2(0, -213), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpab7"]
+_data = {
+&"RESET": SubResource("Animation_cpab7"),
+&"attack": SubResource("Animation_2fi32")
+}
 
 [sub_resource type="Animation" id="Animation_5spgv"]
 length = 0.001
@@ -157,6 +195,43 @@ _data = {
 &"die": SubResource("Animation_iaqa0")
 }
 
+[sub_resource type="Animation" id="Animation_jko2k"]
+length = 0.0055
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rhecw"]
+resource_name = "hurt"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fi32"]
+_data = {
+&"RESET": SubResource("Animation_jko2k"),
+&"hurt": SubResource("Animation_rhecw")
+}
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4b0t"]
 animations = [{
 "frames": [{
@@ -239,25 +314,34 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Apathy" type="Node2D" unique_id=167018356 node_paths=PackedStringArray("death_animation", "health_component")]
+[node name="Apathy" type="Node2D" unique_id=167018356 node_paths=PackedStringArray("death_animation", "health_component", "spike_attack_animation", "hurt_animation")]
 script = ExtResource("1_0tglv")
 death_animation = NodePath("DeathAnimation")
 next_enemy = ExtResource("2_5spgv")
 health_component = NodePath("HealthComponent")
+spike_scene = ExtResource("3_2fi32")
+spike_attack_animation = NodePath("SpikeAttackAnimation")
+hurt_animation = NodePath("HurtAnimation")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1359381179]
 
+[node name="SpikeAttackAnimation" type="AnimationPlayer" parent="." unique_id=1980146233]
+libraries/ = SubResource("AnimationLibrary_cpab7")
+
 [node name="DeathAnimation" type="AnimationPlayer" parent="." unique_id=342006951]
 libraries/ = SubResource("AnimationLibrary_5spgv")
+
+[node name="HurtAnimation" type="AnimationPlayer" parent="." unique_id=211035648]
+libraries/ = SubResource("AnimationLibrary_2fi32")
 
 [node name="Shadow" parent="." unique_id=862329244 instance=ExtResource("1_0uvqh")]
 shadow_size = 96
 
 [node name="Visuals" type="Node2D" parent="." unique_id=779325607]
+modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.605, 0.605)
 
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1372649894]
-modulate = Color(0, 0, 0, 1)
 position = Vector2(0, -168.59503)
 sprite_frames = SubResource("SpriteFrames_y4b0t")
 autoplay = "default"
@@ -268,6 +352,8 @@ position = Vector2(0, -366.94214)
 sprite_frames = SubResource("SpriteFrames_rtatv")
 
 [node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("18_yy5jl")]
+contact_damage = 0
+contact_knockback = 0
 take_knockback = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox" unique_id=1104129634]
