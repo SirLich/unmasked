@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cvg8gbafjtnml" path="res://assets/Audio/Music/Unmasked-Music-Menu-Loop.wav" id="4_ujjlt"]
 [ext_resource type="PackedScene" uid="uid://vkov8p7w8kjb" path="res://ui/screens/settings/settings_menu.tscn" id="5_ycxi4"]
 [ext_resource type="PackedScene" uid="uid://dubc1qild7qo7" path="res://ui/screens/pause_screen/pause_screen.tscn" id="6_donah"]
+[ext_resource type="Resource" uid="uid://tc03krtvrrit" path="res://resources/reverse_curtain.tres" id="8_jw0fr"]
 [ext_resource type="Resource" uid="uid://bo638ignsatct" path="res://resources/play_fade.tres" id="8_yt0f1"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_k8ki3"]
@@ -26,6 +27,7 @@ loop = true
 script = ExtResource("1_akcgr")
 default_scene_transition = ExtResource("2_ycxi4")
 play_scene_transition = ExtResource("8_yt0f1")
+reverse_carpet_transition = ExtResource("8_jw0fr")
 main_menu_music = ExtResource("4_ujjlt")
 game_music = SubResource("AudioStreamOggVorbis_ujjlt")
 main_menu_scene = ExtResource("2_r764v")
