@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://boekyymsknfa7" path="res://assets/Sadness/Sadness_Body-3.png" id="5_kexi0"]
 [ext_resource type="AudioStream" uid="uid://ceccghv4o541b" path="res://scenes/sfx_boss_liquify.ogg" id="5_sk10g"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_i6isk"]
+[ext_resource type="AudioStream" uid="uid://5xmvd542gd3g" path="res://addons/sfx_mask_break.ogg" id="6_mplce"]
 [ext_resource type="Texture2D" uid="uid://c6lq60sdgsfa0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-1.png" id="8_goxci"]
 [ext_resource type="Texture2D" uid="uid://dntwtq3kh64l0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-2.png" id="9_613l8"]
 [ext_resource type="Texture2D" uid="uid://i3l18dtaxexq" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-3.png" id="10_oj5vh"]
@@ -194,6 +195,21 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MaskSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_mplce")
+}],
+"times": PackedFloat32Array(0.96666664)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6isk"]
 _data = {
@@ -504,6 +520,8 @@ tear_scene = ExtResource("3_oj5vh")
 next_enemy = ExtResource("4_vb5ew")
 pre_ranged_attack_animation = NodePath("PreRangedAttackAnimation")
 puddle_attack_sound = ExtResource("5_sk10g")
+
+[node name="MaskSound" type="AudioStreamPlayer" parent="." unique_id=1571175357]
 
 [node name="HealTimer" type="Timer" parent="." unique_id=1238875914]
 wait_time = 0.4

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bb31vpntxkn7" path="res://assets/Anger/Anger_Body/Anger_Body-3.png" id="4_hnwap"]
 [ext_resource type="PackedScene" uid="uid://cd82rxg1qpvjf" path="res://scenes/sadness/sadness.tscn" id="4_udgi6"]
 [ext_resource type="AudioStream" uid="uid://dx2e5vykkvr7u" path="res://assets/Audio/VO/Unmasked-VO-Anger-to-Sad.wav" id="5_cpdxm"]
+[ext_resource type="AudioStream" uid="uid://5xmvd542gd3g" path="res://addons/sfx_mask_break.ogg" id="5_k34le"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="5_wyuln"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_hd3gt"]
 [ext_resource type="Texture2D" uid="uid://dtbwj1mp0juwe" path="res://assets/Anger/Anger_Mask/Anger_Mask-1.png" id="6_ktt7b"]
@@ -189,6 +190,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MaskSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_k34le")
+}],
+"times": PackedFloat32Array(1.2)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ymwoy"]
 _data = {
@@ -286,6 +302,8 @@ hurt_animation = NodePath("HurtAnimation")
 death_animation = NodePath("DeathAnimation")
 next_enemy = ExtResource("4_udgi6")
 transition_audio = ExtResource("5_cpdxm")
+
+[node name="MaskSound" type="AudioStreamPlayer" parent="." unique_id=668741184]
 
 [node name="SpawnAnimation" type="AnimationPlayer" parent="." unique_id=51431277]
 

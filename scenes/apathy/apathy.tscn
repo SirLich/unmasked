@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://equjfbtp56km" path="res://assets/Apathy/Apathy_Body/Apathy_Body-1.png" id="3_0tglv"]
 [ext_resource type="PackedScene" uid="uid://8jkqc546roxn" path="res://scenes/spike/spike.tscn" id="3_2fi32"]
 [ext_resource type="Texture2D" uid="uid://qfjte4yimye0" path="res://assets/Apathy/Apathy_Body/Apathy_Body-2.png" id="4_4cdsl"]
+[ext_resource type="AudioStream" uid="uid://5xmvd542gd3g" path="res://addons/sfx_mask_break.ogg" id="4_d02k5"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="5_5spgv"]
 [ext_resource type="Texture2D" uid="uid://mupq3anvcil5" path="res://assets/Apathy/Apathy_Body/Apathy_Body-3.png" id="5_iaqa0"]
 [ext_resource type="Texture2D" uid="uid://d164leoq32a5k" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-1.png" id="7_0tglv"]
@@ -191,6 +192,21 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MaskSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_d02k5")
+}],
+"times": PackedFloat32Array(0.33333337)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5spgv"]
 _data = {
@@ -341,6 +357,8 @@ spike_attack_animation = NodePath("SpikeAttackAnimation")
 hurt_animation = NodePath("HurtAnimation")
 enemy_hit_box = NodePath("EnemyHitBox")
 body = NodePath("Visuals/Body")
+
+[node name="MaskSound" type="AudioStreamPlayer" parent="." unique_id=1747610291]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1359381179]
 
