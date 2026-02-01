@@ -235,6 +235,7 @@ position = Vector2(830, 379)
 move_speed = 100
 
 [node name="Player" parent="." unique_id=1339953909 instance=ExtResource("4_kelw5")]
+modulate = Color(0.9, 0.76229995, 0.747, 1)
 position = Vector2(838, 634)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782488479]
