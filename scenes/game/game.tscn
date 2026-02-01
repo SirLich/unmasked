@@ -207,7 +207,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 4.268105504138397
+wait_time = 3.4468537036467484
 autostart = true
 script = ExtResource("3_ftsea")
 min_time = 3.0
@@ -334,13 +334,13 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 0.13333334, 0)
+color = Color(0.7764706, 0.16470589, 0.3137255, 0)
 script = ExtResource("41_fba2n")
 color_map = Dictionary[int, Color]({
-0: Color(0.8208611, 0.63895816, 0.17240751, 0.14509805),
-1: Color(0.6784314, 0.34117648, 0.20392157, 0.19607843),
-2: Color(0.22352941, 0.49803922, 0.8666667, 0.16470589),
-3: Color(0.25490198, 0.25490198, 0.25490198, 0.16078432)
+0: Color(0.7764706, 0.16470589, 0.3137255, 0.19607843),
+1: Color(0.9019608, 0, 0.5529412, 0.19607843),
+2: Color(0.43137255, 0.49019608, 1, 0.23529412),
+3: Color(0.38039216, 0, 0.6901961, 0.19607843)
 })
 
 [node name="Death" type="ColorRect" parent="CanvasLayer" unique_id=987531377]
