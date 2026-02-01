@@ -1284,11 +1284,11 @@ debug_color = Color(0.673618, 0.5019504, 0.21621296, 0.41960785)
 invincibility_time = 0.0
 
 [node name="SmallAttackAnimation" type="AnimatedSprite2D" parent="." unique_id=1536998157]
-modulate = Color(0.89478916, 0.29897404, 0.20058358, 1)
+modulate = Color(0, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_73maf")
 
 [node name="LargeAttackAnimation" type="AnimatedSprite2D" parent="." unique_id=1587281917]
-modulate = Color(0.89478916, 0.29897404, 0.20058358, 1)
+modulate = Color(0, 0, 0, 1)
 scale = Vector2(2.32, 2.32)
 sprite_frames = SubResource("SpriteFrames_73maf")
 
