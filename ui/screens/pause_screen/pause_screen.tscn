@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://ds3mvd8utsb67" path="res://ui/screens/pause_screen/pause_screen.gd" id="1_c0vf7"]
 [ext_resource type="PackedScene" uid="uid://bum01orwklqho" path="res://ui/elements/buttons/small_button.tscn" id="1_wiqq7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0vf7"]
+bg_color = Color(0.32915828, 0.32915843, 0.32915837, 0.6431373)
+
 [node name="PauseScreen" type="Control" unique_id=1064965017 node_paths=PackedStringArray("continue_button", "main_menu_button")]
 process_mode = 3
 layout_mode = 3
@@ -22,12 +25,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -320.0
+offset_top = -165.25
+offset_right = 242.79346
+offset_bottom = 165.25
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0037736, 0.9927536)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0vf7")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=468910212]
 layout_mode = 2
