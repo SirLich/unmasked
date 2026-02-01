@@ -334,7 +334,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.7764706, 0.16470589, 0.3137255, 0.19607843)
+color = Color(0.7764706, 0.16470589, 0.3137255, 0)
 script = ExtResource("41_fba2n")
 color_map = Dictionary[int, Color]({
 0: Color(0.7764706, 0.16470589, 0.3137255, 0.19607843),
