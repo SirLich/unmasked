@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://buiub44uihua0" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-12.png" id="18_lkcun"]
 [ext_resource type="PackedScene" uid="uid://b341wguj0trwh" path="res://scenes/joy/enemy_hitbox.tscn" id="18_yy5jl"]
 [ext_resource type="PackedScene" uid="uid://c7t884v5eoyj2" path="res://scenes/health_component/health_component.tscn" id="19_cmoth"]
-[ext_resource type="Texture2D" uid="uid://cyaaafb2ghu7h" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-1.png" id="21_iaqa0"]
-[ext_resource type="Texture2D" uid="uid://kj0rlcxj83qv" path="res://assets/Apathy/Apathy_Transition/Apathy_Transition-2.png" id="22_5spgv"]
+[ext_resource type="Texture2D" uid="uid://ce4w5yyqlirot" path="res://assets/father/Father_Transition/Father_Transition-1.png" id="25_ug2d0"]
+[ext_resource type="Texture2D" uid="uid://vgbybttpuopg" path="res://assets/father/Father_Transition/Father_Transition-2.png" id="26_ggsny"]
 
 [sub_resource type="Animation" id="Animation_cpab7"]
 length = 0.001
@@ -304,10 +304,10 @@ radius = 90.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_iaqa0")
+"texture": ExtResource("25_ug2d0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_5spgv")
+"texture": ExtResource("26_ggsny")
 }],
 "loop": true,
 "name": &"default",
@@ -366,6 +366,6 @@ invincibility_time = 0.1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1167448901]
 visible = false
 modulate = Color(0, 0, 0, 1)
-position = Vector2(2.9999924, -107)
-scale = Vector2(0.7285156, 0.7285156)
+position = Vector2(-3.000001, -94)
+scale = Vector2(1.0087956, 1.0087956)
 sprite_frames = SubResource("SpriteFrames_2fi32")

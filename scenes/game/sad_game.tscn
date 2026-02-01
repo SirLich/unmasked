@@ -42,7 +42,7 @@
 [ext_resource type="Shader" uid="uid://dqo33wtorlxa5" path="res://scenes/game/CRT.gdshader" id="41_6jbfb"]
 [ext_resource type="Texture2D" uid="uid://cuj7lytjrfjpj" path="res://assets/Ground.png" id="42_8giue"]
 [ext_resource type="Script" uid="uid://cp4l0wqun6my8" path="res://scenes/game/nav.gd" id="43_65dr4"]
-[ext_resource type="PackedScene" uid="uid://cd82rxg1qpvjf" path="res://scenes/sadness/sadness.tscn" id="43_pyltj"]
+[ext_resource type="PackedScene" uid="uid://68yn5m1pap7v" path="res://scenes/apathy/apathy.tscn" id="43_pyltj"]
 
 [sub_resource type="Animation" id="Animation_87uf6"]
 length = 0.001
@@ -206,7 +206,7 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VoiceOverManager" unique_id=294548935]
 
 [node name="Timer" type="Timer" parent="VoiceOverManager" unique_id=1748212380]
-wait_time = 5.192917373990117
+wait_time = 4.537420403875621
 autostart = true
 script = ExtResource("28_pl1qu")
 min_time = 3.0
@@ -369,4 +369,4 @@ invert_enabled = true
 polygon = PackedVector2Array(191, -301, -244, -123, -348, 214, -382, 756, -115, 1274, 501, 1464, 1346, 1525, 2158, 1295, 2403, 103, 1995, -200, 1603, -319, 795, -332)
 script = ExtResource("43_65dr4")
 
-[node name="Sadness" parent="." unique_id=1712075422 instance=ExtResource("43_pyltj")]
+[node name="Apathy" parent="." unique_id=167018356 instance=ExtResource("43_pyltj")]

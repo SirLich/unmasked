@@ -30,6 +30,7 @@ func do_spike_attack():
 	for i in range(20):
 		var new_spike = spike_scene.instantiate()
 		new_spike.global_position = Utils.get_player().global_position
+		add_sibling(new_spike)
 		await Utils.wait(0.1)
 	
 	await spike_attack_animation.animation_finished

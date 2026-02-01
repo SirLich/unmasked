@@ -46,7 +46,7 @@ func fight_started(new_enemy : Global.EnemyType):
 	if new_enemy == Global.EnemyType.SADNESS:
 		active_voice_lines = sadness_voices
 	if new_enemy == Global.EnemyType.APATHY:
-		active_voice_lines = anger_voices
+		active_voice_lines = apathy_voices
 	
 func try_play_voice_line():
 	if voices_active and not audio_stream_player.playing:
