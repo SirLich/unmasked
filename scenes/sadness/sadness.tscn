@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cswdpiiiudcgf" path="res://assets/Sadness/Sadness_Body-2.png" id="4_p3ksq"]
 [ext_resource type="PackedScene" uid="uid://68yn5m1pap7v" path="res://scenes/apathy/apathy.tscn" id="4_vb5ew"]
 [ext_resource type="Texture2D" uid="uid://boekyymsknfa7" path="res://assets/Sadness/Sadness_Body-3.png" id="5_kexi0"]
+[ext_resource type="AudioStream" uid="uid://ceccghv4o541b" path="res://scenes/sfx_boss_liquify.ogg" id="5_sk10g"]
 [ext_resource type="Shader" uid="uid://cgcxedg8yw3b2" path="res://scenes/joy/joy.gdshader" id="6_i6isk"]
 [ext_resource type="Texture2D" uid="uid://c6lq60sdgsfa0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-1.png" id="8_goxci"]
 [ext_resource type="Texture2D" uid="uid://dntwtq3kh64l0" path="res://assets/Sadness/Sadness_Mask/Sadness_Puddle-20260131T224110Z-3-001/Sadness_Puddle/Sadness_Puddle-2.png" id="9_613l8"]
@@ -502,6 +503,7 @@ heal_timer = NodePath("HealTimer")
 tear_scene = ExtResource("3_oj5vh")
 next_enemy = ExtResource("4_vb5ew")
 pre_ranged_attack_animation = NodePath("PreRangedAttackAnimation")
+puddle_attack_sound = ExtResource("5_sk10g")
 
 [node name="HealTimer" type="Timer" parent="." unique_id=1238875914]
 wait_time = 0.4

@@ -11,6 +11,7 @@ extends Node2D
 @export var num_raindrops = 30*2
 @export var break_size = 5
 @export var pre_ranged_attack_animation: AnimationPlayer
+@export var puddle_attack_sound: AudioStream
 
 var is_dead = false
 
@@ -37,6 +38,7 @@ func do_puddle_attack():
 		return
 		
 	is_healing = true
+	SoundManager.play_sound(puddle_attack_sound)
 	puddle_attack_animation.play("attack")
 	await puddle_attack_animation.animation_finished
 	is_healing = false

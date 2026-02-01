@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://mupq3anvcil5" path="res://assets/Apathy/Apathy_Body/Apathy_Body-3.png" id="5_iaqa0"]
 [ext_resource type="Texture2D" uid="uid://d164leoq32a5k" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-1.png" id="7_0tglv"]
 [ext_resource type="Texture2D" uid="uid://bn4jrxgcl22iy" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-2.png" id="8_4cdsl"]
+[ext_resource type="Texture2D" uid="uid://nay3x46ht7ha" path="res://assets/Apathy/Apathy_Teleport/Apathy_Teleport-1.png" id="8_ggsny"]
+[ext_resource type="Texture2D" uid="uid://8t7abo5xcrjq" path="res://assets/Apathy/Apathy_Teleport/Apathy_Teleport-2.png" id="9_d02k5"]
 [ext_resource type="Texture2D" uid="uid://dltvo5kr004hh" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-3.png" id="9_iaqa0"]
+[ext_resource type="Texture2D" uid="uid://dhxcdd6r3sgmx" path="res://assets/Apathy/Apathy_Teleport/Apathy_Teleport-3.png" id="10_3tu7u"]
 [ext_resource type="Texture2D" uid="uid://bukv2a83v4oqt" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-4.png" id="10_5spgv"]
 [ext_resource type="Texture2D" uid="uid://bbmddt04hvkvj" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-5.png" id="11_2fi32"]
 [ext_resource type="Texture2D" uid="uid://dpb45himmj54t" path="res://assets/Apathy/Apathy_Mask/Apathy_Mask-6.png" id="12_cpab7"]
@@ -247,6 +250,20 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ggsny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d02k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3tu7u")
+}],
+"loop": false,
+"name": &"teleport",
+"speed": 5.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1g4d"]
@@ -314,7 +331,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Apathy" type="Node2D" unique_id=167018356 node_paths=PackedStringArray("death_animation", "health_component", "spike_attack_animation", "hurt_animation")]
+[node name="Apathy" type="Node2D" unique_id=167018356 node_paths=PackedStringArray("death_animation", "health_component", "spike_attack_animation", "hurt_animation", "enemy_hit_box", "body")]
 script = ExtResource("1_0tglv")
 death_animation = NodePath("DeathAnimation")
 next_enemy = ExtResource("2_5spgv")
@@ -322,6 +339,8 @@ health_component = NodePath("HealthComponent")
 spike_scene = ExtResource("3_2fi32")
 spike_attack_animation = NodePath("SpikeAttackAnimation")
 hurt_animation = NodePath("HurtAnimation")
+enemy_hit_box = NodePath("EnemyHitBox")
+body = NodePath("Visuals/Body")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1359381179]
 
@@ -344,6 +363,7 @@ scale = Vector2(0.605, 0.605)
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1372649894]
 position = Vector2(0, -168.59503)
 sprite_frames = SubResource("SpriteFrames_y4b0t")
+animation = &"teleport"
 autoplay = "default"
 
 [node name="Mask" type="AnimatedSprite2D" parent="Visuals" unique_id=1472428001]

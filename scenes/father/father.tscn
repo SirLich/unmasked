@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bybpnws6p5hwy"]
 
-[ext_resource type="Script" uid="uid://ctsl2mlxruuc6" path="res://scenes/father/father.gd" id="1_4cap5"]
+[ext_resource type="Script" path="res://scenes/father/father.gd" id="1_4cap5"]
 [ext_resource type="Texture2D" uid="uid://p6nsac786tig" path="res://assets/father/Father_Darker.png" id="1_wgd3f"]
 [ext_resource type="PackedScene" uid="uid://cq3q2tiqvajbb" path="res://scenes/shadow/shadow.tscn" id="2_4cap5"]
 [ext_resource type="AudioStream" uid="uid://cra6p4h18kqqo" path="res://assets/Audio/VO/Unmasked-VO-Sad-to-Apathy.wav" id="2_7f6ad"]
