@@ -4,6 +4,7 @@ class_name HealthComponent
 @export var max_health = 100
 @export var do_shake = true
 @onready var health = max_health
+@export var do_broadcast = true
 
 signal died
 signal hurt
@@ -21,7 +22,6 @@ func _physics_process(delta: float) -> void:
 		i_frames -= delta
 
 func heal(num):
-	print("HEALED!")
 	health = min(max_health, health+num)
 	Global.enemy_took_damage.emit(health/max_health)
 
@@ -42,10 +42,11 @@ func take_damage(damage : float) -> void:
 	health -= damage
 	i_frames = invincibility_time
 	
-	if not get_parent() is Player:
-		Global.enemy_took_damage.emit(health/max_health)
-	else:
-		Global.player_health_changed.emit(health, max_health)
+	if do_broadcast:
+		if not get_parent() is Player:
+			Global.enemy_took_damage.emit(health/max_health)
+		else:
+			Global.player_health_changed.emit(health, max_health)
 		
 	if do_shake:
 		Utils.get_camera().start_shake(15.0, 0.2, 20)

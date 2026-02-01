@@ -118,8 +118,8 @@
 [ext_resource type="Texture2D" uid="uid://crr04abw5ksh3" path="res://assets/Puppy/Puppy_Attack/EntranceString/Puppy_String-15.png" id="122_x6bw1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8afob"]
-radius = 45.0
-height = 146.0
+radius = 33.96545
+height = 67.9309
 
 [sub_resource type="Animation" id="Animation_dovo2"]
 length = 0.001
@@ -826,6 +826,7 @@ contact_damage = 0
 contact_knockback = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=749503063]
+position = Vector2(-1, 59)
 rotation = 0.024418239
 shape = SubResource("CapsuleShape2D_8afob")
 
@@ -839,6 +840,7 @@ position = Vector2(-17.999996, -54)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("3_lvxji")
+damage = 5
 knockback = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackShape" unique_id=1701338926]

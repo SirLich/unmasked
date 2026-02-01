@@ -61,7 +61,7 @@ func do_cry_attack():
 
 	
 	await Utils.wait(4)
-	await do_cry_attack()
+	await do_puddle_attack()
 	
 	
 func on_hurt():

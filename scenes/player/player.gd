@@ -3,7 +3,7 @@ class_name Player
 
 @export var speed = 600
 @export var hit_box: Area2D
-@export var attack_speed = 5.0
+@export var attack_speed = 10.0
 @export var attack_animation: AnimationPlayer
 @export var attack_damage = 10
 @export var health_component: HealthComponent
@@ -143,4 +143,5 @@ func do_attack():
 		attack_animation.play("attack", -1, attack_speed)
 	await attack_animation.animation_finished
 	attack_shape.process_mode = Node.PROCESS_MODE_DISABLED
+	await Utils.wait(0.4)
 	is_currently_attacking = false

@@ -109,6 +109,7 @@ autoplay = &"vanish"
 
 [node name="HealthComponent" parent="." unique_id=870133478 instance=ExtResource("6_cgbff")]
 max_health = 1
+do_broadcast = false
 
 [node name="EnemyHitBox" parent="." unique_id=18722359 instance=ExtResource("7_kptu7")]
 contact_damage = 1
