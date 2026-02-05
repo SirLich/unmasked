@@ -132,6 +132,9 @@ func do_dash():
 	dash_time = dash_dur
 	
 func do_attack():
+	if not can_move:
+		return
+		
 	SoundManager.play_sound(player_attack_sound)
 	is_currently_attacking = true
 	attack_shape.process_mode = Node.PROCESS_MODE_ALWAYS

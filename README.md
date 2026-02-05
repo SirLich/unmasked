@@ -6,7 +6,12 @@ This game was created in 48 hours, for [Global Game Jam 2026](https://globalgame
 
 ## 1.2.0
 
-- Added controller input bindings 
+- Added controller input bindings
+- Fixed credits (Bug: Credits text file was missing in exported build.)
+- Fixed anger balance (Bug: Anger attack pattern was reversed from the intention)
+- Fixed apathy soft lock (Bug: Apathy teleported in relation to itself, not the player)
+- Ensure that all music loops
+- Fixed voice lines looping incorrectly for Sadness and Anger fights
 
 ## 1.1.0
 

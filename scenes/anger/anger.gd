@@ -69,7 +69,7 @@ func do_dash():
 	tween.tween_property(self, "global_position", pos, dash_speed)
 	await tween.finished
 	
-	if randf() > 0.2:
+	if randf() > 0.8:
 		do_idle()
 	else:
 		do_dash()

@@ -52,7 +52,7 @@ func do_teleport():
 	await body.animation_finished
 	
 	var nav = Utils.get_first_of_type(Nav) as Nav
-	global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + global_position - Vector2(1920/2,1080/2)
+	global_position = Utils.Triangle.get_random_point_in_polygon(nav.polygon) + Utils.get_player().global_position - Vector2(1920/2,1080/2)
 	
 	body.play("default")
 	

@@ -39,6 +39,7 @@ func enemy_died():
 	
 func fight_started(new_enemy : Global.EnemyType):
 	current_phase = new_enemy
+	index = 0
 	voices_active = true
 	
 	if new_enemy == Global.EnemyType.ANGER:
